@@ -1,0 +1,20 @@
+company_id,fact_type,source_url,source_label,retrieved_at,notes
+IND-001,general,https://theflyingengineer.com/listing/charter/air-charter-services-pvt-ltd/,The Flying Engineer directory,2026-10-17,Fleet types and services confirmed
+IND-001,fleet,https://theflyingengineer.com/listing/air-charter-services-pvt-ltd/,The Flying Engineer listing,2026-10-17,Specific aircraft models listed
+IND-001,location,https://theflyingengineer.com/listing/charter/air-charter-services-pvt-ltd/,The Flying Engineer directory,2026-10-17,Hangar 3 near GAT Delhi confirmed
+IND-002,general,https://en.wikipedia.org/wiki/Club_One_Air,Wikipedia,2026-10-17,Fleet count and aircraft types; note: CRJ100 listed as of July 2026
+IND-002,fleet,https://en.wikipedia.org/wiki/Club_One_Air,Wikipedia,2026-10-17,Falcon 2000 x5 confirmed; count inconsistency noted (table says 8 but rows add to 9)
+IND-003,general,https://en.wikipedia.org/wiki/JetSetGo,Wikipedia,2026-10-17,Founded 2014; founders confirmed; fleet size 12
+IND-003,fleet,https://en.wikipedia.org/wiki/JetSetGo,Wikipedia,2026-10-17,Global 6000 / Legacy 600 / Falcon 2000LX / AW109 listed
+IND-003,hq,https://theflyingengineer.com/cat/charter/in/india/,The Flying Engineer India charter list,2026-10-17,Listed as New Delhi
+IND-004,general,https://theflyingengineer.com/listing/indopacific-aviation/,The Flying Engineer listing,2026-10-17,Nehru Place HQ address confirmed; JetSetGo parent confirmed; CAR-145 approval noted
+IND-004,fleet,https://theflyingengineer.com/listing/indopacific-aviation/,The Flying Engineer listing,2026-10-17,Fleet described as light/midsize/large/helicopter — no specific models publicly listed
+IND-005,general,https://theflyingengineer.com/listing/india-fly-safe-aviation/,The Flying Engineer listing,2026-10-17,Founded 1997; 12-aircraft fleet confirmed
+IND-005,fleet,https://theflyingengineer.com/listing/india-fly-safe-aviation/,The Flying Engineer listing,2026-10-17,AW139 / AW109S / PC-12 / ERJ-135 / Caravan confirmed
+IND-006,general,https://theflyingengineer.com/listing/deccan-charters-private-limited/,The Flying Engineer listing,2026-10-17,Bengaluru HQ; Delhi hub; 17 aircraft; UDAN operator
+IND-006,fleet,https://theflyingengineer.com/listing/deccan-charters-private-limited/,The Flying Engineer listing,2026-10-17,17 aircraft total (12 helicopters + 5 fixed-wing); types not specified
+IND-007,general,https://acukwik.com/Basic-Info/VIDP/INDAMER-MJETS-AIRPORT-SERVICES-PVT-LTD,ACUKWIK airport database,2026-10-17,FBO/handling listing at VIDP confirmed
+IND-007,general,https://marketplace.aviationweek.com/company/indamer-aviation-pvt-ltd,Aviation Week Marketplace,2026-10-17,Company listing confirms Delhi operations
+IND-008,general,https://theflyingengineer.com/cat/charter/in/india/,The Flying Engineer India charter list,2026-10-17,Listed as helicopter and aircraft charter; New Delhi location
+IND-009,general,https://theflyingengineer.com/cat/charter/in/india/,The Flying Engineer India charter list,2026-10-17,Listed as aircraft sales and charter; Cirrus agent; New Delhi location
+IND-010,general,https://theflyingengineer.com/cat/charter/in/india/,The Flying Engineer India charter list,2026-10-17,Listed since 1995; New Delhi; executive charter

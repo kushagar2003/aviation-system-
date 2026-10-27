@@ -1,0 +1,365 @@
+AVATITION LIVE CHECK (real pipeline, real database file, real questions)
+==========================================================================
+Run at   : 2026-10-18 18:38
+Understood by: Gemini (default model)
+Database : local SQLite file avatition.db (same data as database/02_data.sql)
+RESULT   : 45 of 48 questions answered as expected
+
+By kind of question:
+   VIP / government             0/1
+   aircraft type                2/3
+   business situation           3/3
+   cheapest / earliest          2/3
+   comparison                   2/2
+   contact details              4/4
+   flight status                2/2
+   general idea                 1/1
+   listing / counting           4/4
+   missing data                 1/1
+   mixed (company + flight)     2/2
+   need in plain words          3/3
+   occasion                     2/2
+   out of scope                 1/1
+   request outside the system   1/1
+   route + deadline             7/7
+   several limits at once       3/3
+   trust / sources              3/3
+   vague wish                   2/2
+
+--------------------------------------------------------------------------
+[PASS] Q01 (route + deadline)
+   Question : I'm in Mumbai and need to reach Delhi by the morning of 22 October.
+   Expected : flights=CM-201,PV-101
+   Got      : flights=CM-201,PV-101
+   Read by  : gemini
+   Answer   : I found 2 flights: PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight; CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat.
+
+[PASS] Q02 (route + deadline)
+   Question : I need to go from Delhi to Mumbai on the evening of 22 October.
+   Expected : flights=PV-105
+   Got      : flights=PV-105
+   Read by  : gemini
+   Answer   : No bookable flight matches that. CM-202 is full. Closest options: other flights the same day.
+
+[PASS] Q03 (route + deadline)
+   Question : Any flight from Bengaluru to Delhi on 20 October?
+   Expected : flights=PV-104
+   Got      : flights=PV-104
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-104 Deccan Charters Pvt. Ltd., departs 20 Oct, 08:30, arrives 20 Oct, 11:10, Rs 5,20,000 per flight.
+
+[PASS] Q04 (route + deadline)
+   Question : Is there a flight from Bengaluru to Mumbai on 21 October?
+   Expected : flights=CM-203
+   Got      : flights=CM-203
+   Read by  : gemini
+   Answer   : I found 1 flight: CM-203 Akasa Air, departs 21 Oct, 09:30, arrives 21 Oct, 11:10, Rs 4,800 per seat.
+
+[PASS] Q05 (route + deadline)
+   Question : I want to fly from Delhi to Bengaluru on 23 October.
+   Expected : flights=PV-103
+   Got      : flights=PV-103
+   Read by  : gemini
+   Answer   : No bookable flight matches that. CM-204 is cancelled. Closest options: the nearest flights on this route on other days.
+
+[PASS] Q06 (route + deadline)
+   Question : Mumbai to Bengaluru on 23 October please.
+   Expected : flights=PV-106
+   Got      : flights=PV-106
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-106 JetSetGo Aviation Services Pvt. Ltd., departs 23 Oct, 11:00, arrives 23 Oct, 12:40, Rs 5,20,000 per flight.
+
+[PASS] Q07 (route + deadline)
+   Question : I need a flight from Delhi to Pune on 22 October.
+   Expected : none=Pune is not covered
+   Got      : status=out_of_scope
+   Read by  : gemini
+   Answer   : I only have flights between Delhi, Mumbai and Bengaluru, so I have nothing to offer for that city.
+
+[FAIL] Q08 (cheapest / earliest)
+   Question : What is the cheapest way to get from Mumbai to Delhi?
+   Expected : flights=CM-201
+   Got      : flights=CM-201,PV-101
+   Read by  : gemini
+   Answer   : I found 2 flights: CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat; PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight.
+
+[PASS] Q09 (cheapest / earliest)
+   Question : What is the cheapest private flight between Delhi and Mumbai?
+   Expected : flights=PV-105
+   Got      : flights=PV-105
+   Read by  : gemini
+   Answer   : PV-105 (Air Charter Services Pvt. Ltd.) is the cheapest match: Rs 4,50,000 per flight, departing 22 Oct, 14:00.
+
+[PASS] Q10 (cheapest / earliest)
+   Question : Which flight leaves Mumbai the earliest?
+   Expected : flights=PV-101
+   Got      : flights=PV-101
+   Read by  : gemini
+   Answer   : PV-101 (JetSetGo Aviation Services Pvt. Ltd.) is the earliest match: Rs 6,50,000 per flight, departing 21 Oct, 07:00.
+
+[PASS] Q11 (several limits at once)
+   Question : A private flight from Delhi to Mumbai under Rs 5 lakh with at least 6 seats.
+   Expected : flights=PV-105
+   Got      : flights=PV-105
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-105 Air Charter Services Pvt. Ltd., departs 22 Oct, 14:00, arrives 22 Oct, 16:10, Rs 4,50,000 per flight.
+
+[PASS] Q12 (several limits at once)
+   Question : A commercial flight from Mumbai to Delhi with at least 10 seats under Rs 7,000.
+   Expected : flights=CM-201
+   Got      : flights=CM-201
+   Read by  : gemini
+   Answer   : I found 1 flight: CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat.
+
+[PASS] Q13 (several limits at once)
+   Question : We are 9 people. Which private flight can take us from Delhi to Bengaluru?
+   Expected : flights=PV-103
+   Got      : flights=PV-103
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-103 JetSetGo Aviation Services Pvt. Ltd., departs 22 Oct, 10:00, arrives 22 Oct, 12:40, Rs 9,50,000 per flight.
+
+[PASS] Q14 (contact details)
+   Question : What are the phone number and email of Club One Air?
+   Expected : value=+91 11 2677 9095;sales@cluboneair.com
+   Got      : value found
+   Read by  : gemini
+   Answer   : Club One Air: phone +91 11 2677 9095, email sales@cluboneair.com, website https://www.cluboneair.com. Verification level: medium (checked 2026-10-17).
+
+[PASS] Q15 (contact details)
+   Question : How do I contact JetSetGo?
+   Expected : value=+91 11 4084 5858;Not publicly listed
+   Got      : value found
+   Read by  : gemini
+   Answer   : JetSetGo Aviation Services Pvt. Ltd.: phone +91 11 4084 5858, email Not publicly listed, website https://www.jetsetgo.in. Verification level: high (checked 2026-10-17).
+
+[PASS] Q16 (contact details)
+   Question : Give me the contact details of IndoPacific Aviation.
+   Expected : value=Not publicly listed
+   Got      : value found
+   Read by  : gemini
+   Answer   : IndoPacific Aviation Services Pvt. Ltd.: phone Not publicly listed, email Not publicly listed, website https://www.indopacificaviation.com. Verification level: medium (checked 2026-10-17).
+
+[PASS] Q17 (contact details)
+   Question : What is the website of Span Air?
+   Expected : value=http://www.spanair.in
+   Got      : value found
+   Read by  : gemini
+   Answer   : Span Air: phone +91 11 2567 3006, email Not publicly listed, website http://www.spanair.in. Verification level: low (checked 2026-10-17).
+
+[PASS] Q18 (listing / counting)
+   Question : How many companies are based in Delhi?
+   Expected : value=9
+   Got      : value found
+   Read by  : gemini
+   Answer   : 9 companies match.
+
+[PASS] Q19 (listing / counting)
+   Question : Which companies are based in Bengaluru?
+   Expected : companies=IND-006
+   Got      : companies=IND-006
+   Read by  : gemini
+   Answer   : 1 company match: Deccan Charters Pvt. Ltd.
+
+[PASS] Q20 (listing / counting)
+   Question : List all private flights run by JetSetGo.
+   Expected : flights=PV-101,PV-103,PV-106
+   Got      : flights=PV-101,PV-103,PV-106
+   Read by  : gemini
+   Answer   : I found 3 flights: PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight; PV-103 JetSetGo Aviation Services Pvt. Ltd., departs 22 Oct, 10:00, arrives 22 Oct, 12:40, Rs 9,50,000 per flight; PV-106 JetSetGo Aviation Services Pvt. Ltd., departs 23 Oct, 11:00, arrives 23 Oct, 12:40, Rs 5,20,000 per flight.
+
+[PASS] Q21 (listing / counting)
+   Question : How many flights leave Delhi?
+   Expected : value=5
+   Got      : value found
+   Read by  : gemini
+   Answer   : 5 flights match.
+
+[FAIL] Q22 (aircraft type)
+   Question : Which flights use an Airbus A320neo?
+   Expected : flights=CM-201,CM-202,CM-204
+   Got      : flights=CM-201
+   Read by  : gemini
+   Answer   : I found 1 flight: CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat.
+
+[PASS] Q23 (aircraft type)
+   Question : Which companies have a Falcon 2000 in their fleet?
+   Expected : companies=IND-001,IND-002,IND-003
+   Got      : companies=IND-001,IND-002,IND-003
+   Read by  : gemini
+   Answer   : 3 companies match: JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., Club One Air.
+
+[PASS] Q24 (aircraft type)
+   Question : Which companies have helicopters?
+   Expected : companies=IND-001,IND-003,IND-005,IND-006
+   Got      : companies=IND-001,IND-003,IND-005,IND-006
+   Read by  : gemini
+   Answer   : 4 companies match: JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd.
+
+[PASS] Q25 (flight status)
+   Question : Which flights are cancelled?
+   Expected : flights=CM-204
+   Got      : flights=CM-204
+   Read by  : gemini
+   Answer   : I found 1 flight: CM-204 IndiGo, departs 23 Oct, 16:00, arrives 23 Oct, 18:45, Rs 8,200 per seat.
+
+[PASS] Q26 (flight status)
+   Question : Which flights are fully booked?
+   Expected : flights=CM-202
+   Got      : flights=CM-202
+   Read by  : gemini
+   Answer   : I found 1 flight: CM-202 IndiGo, departs 22 Oct, 20:00, arrives 22 Oct, 22:15, Rs 7,200 per seat.
+
+[PASS] Q27 (trust / sources)
+   Question : Where does the information about Heritage Aviation come from?
+   Expected : companies=IND-008
+   Got      : companies=IND-008
+   Read by  : gemini
+   Answer   : Heritage Aviation: phone +91 85888 30753, email info@heritageaviation.in, website https://www.heritageaviation.in. Verification level: low (checked 2026-10-17).
+
+[PASS] Q28 (trust / sources)
+   Question : Which companies have the highest verification level?
+   Expected : companies=IND-003
+   Got      : companies=IND-003
+   Read by  : gemini
+   Answer   : 1 company match: JetSetGo Aviation Services Pvt. Ltd.
+
+[PASS] Q29 (trust / sources)
+   Question : How reliable is the information on Span Air?
+   Expected : companies=IND-010
+   Got      : companies=IND-010
+   Read by  : gemini
+   Answer   : Span Air: phone +91 11 2567 3006, email Not publicly listed, website http://www.spanair.in. Verification level: low (checked 2026-10-17).
+
+[PASS] Q30 (comparison)
+   Question : Compare Air Charter Services and Club One Air.
+   Expected : companies=IND-001,IND-002
+   Got      : companies=IND-001,IND-002
+   Read by  : gemini
+   Answer   : 2 companies match: Air Charter Services Pvt. Ltd., Club One Air.
+
+[PASS] Q31 (comparison)
+   Question : Compare flight PV-101 with flight CM-201.
+   Expected : flights=PV-101,CM-201
+   Got      : flights=CM-201,PV-101
+   Read by  : gemini
+   Answer   : I found 2 flights: PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight; CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat.
+
+[PASS] Q32 (need in plain words)
+   Question : Who can handle a medical emergency?
+   Expected : companies=IND-001,IND-005,IND-006
+   Got      : companies=IND-001,IND-005,IND-006
+   Read by  : gemini
+   Answer   : 3 companies match: Air Charter Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd.
+
+[PASS] Q33 (need in plain words)
+   Question : I need to get my mother to a hospital in another city urgently.
+   Expected : companies=IND-001,IND-005,IND-006
+   Got      : companies=IND-001,IND-005,IND-006
+   Read by  : gemini
+   Answer   : 3 companies match: Air Charter Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd.
+
+[PASS] Q34 (need in plain words)
+   Question : Which company has helicopters for a corporate visit?
+   Expected : companies=IND-001,IND-003,IND-005,IND-006
+   Got      : companies=IND-001,IND-003,IND-005,IND-006
+   Read by  : gemini
+   Answer   : 4 companies match: India Fly Safe Aviation Ltd. (IFSAL), JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., Deccan Charters Pvt. Ltd.
+
+[FAIL] Q35 (VIP / government)
+   Question : We have a government delegation to move. Who can help?
+   Expected : companies=IND-005,IND-006
+   Got      : companies=IND-005,IND-006,IND-007
+   Read by  : gemini
+   Answer   : 3 companies match: India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd., Indamer Aviation Pvt. Ltd.
+
+[PASS] Q36 (occasion)
+   Question : I'm having a party and I want to have the party on a flight.
+   Expected : none=no company lists a party service
+   Got      : status=no_match
+   Read by  : gemini
+   Answer   : No company in my data lists a party service, so I have no verified match. The closest options are companies offering private charters for leisure or with catering. Ask them directly.
+
+[PASS] Q37 (occasion)
+   Question : We want a honeymoon trip on a private jet.
+   Expected : none=no company lists honeymoon packages
+   Got      : status=no_match
+   Read by  : gemini
+   Answer   : No company in my data lists a honeymoon service, so I have no verified match. The closest options are companies offering private charters for leisure or with catering. Ask them directly.
+
+[PASS] Q38 (vague wish)
+   Question : Something luxurious for the whole family to travel together.
+   Expected : companies=IND-003,IND-004
+   Got      : companies=IND-003,IND-004
+   Read by  : gemini
+   Answer   : 2 companies match: JetSetGo Aviation Services Pvt. Ltd., IndoPacific Aviation Services Pvt. Ltd.
+
+[PASS] Q39 (vague wish)
+   Question : I want to buy my own aircraft. Who can help?
+   Expected : companies=IND-004,IND-009
+   Got      : companies=IND-004,IND-009
+   Read by  : gemini
+   Answer   : 2 companies match: IndoPacific Aviation Services Pvt. Ltd., AirLuxxis.
+
+[PASS] Q40 (business situation)
+   Question : Our executives travel between Delhi and Mumbai every week.
+   Expected : companies=IND-002,IND-005,IND-006
+   Got      : companies=IND-002,IND-005,IND-006
+   Read by  : gemini
+   Answer   : 3 companies match: Club One Air, India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd.
+
+[PASS] Q41 (business situation)
+   Question : My aircraft needs maintenance in Delhi.
+   Expected : companies=IND-003,IND-004,IND-006,IND-007
+   Got      : companies=IND-003,IND-004,IND-006,IND-007
+   Read by  : gemini
+   Answer   : 4 companies match: JetSetGo Aviation Services Pvt. Ltd., IndoPacific Aviation Services Pvt. Ltd., Deccan Charters Pvt. Ltd., Indamer Aviation Pvt. Ltd.
+
+[PASS] Q42 (business situation)
+   Question : I own a jet and need ground handling at Delhi airport.
+   Expected : companies=IND-001,IND-007
+   Got      : companies=IND-001,IND-007
+   Read by  : gemini
+   Answer   : 2 companies match: Air Charter Services Pvt. Ltd., Indamer Aviation Pvt. Ltd.
+
+[PASS] Q43 (mixed (company + flight))
+   Question : Which medical-capable company has a flight from Delhi to Mumbai on 22 October?
+   Expected : companies=IND-001;flights=PV-105
+   Got      : companies=IND-001; flights=PV-105
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-105 Air Charter Services Pvt. Ltd., departs 22 Oct, 14:00, arrives 22 Oct, 16:10, Rs 4,50,000 per flight.
+
+[PASS] Q44 (mixed (company + flight))
+   Question : Show me private flights from Mumbai to Delhi run by a company that offers helicopter charter.
+   Expected : flights=PV-101
+   Got      : flights=PV-101
+   Read by  : gemini
+   Answer   : I found 1 flight: PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight.
+
+[PASS] Q45 (general idea)
+   Question : What is an empty leg flight?
+   Expected : none=needs explanation text (not built yet)
+   Got      : status=no_match
+   Read by  : gemini
+   Answer   : I answer from flight and company data, and I do not have explanation notes for general ideas yet.
+
+[PASS] Q46 (missing data)
+   Question : Which company has the cheapest helicopter?
+   Expected : none=no helicopter prices in the data
+   Got      : status=no_match
+   Read by  : gemini
+   Answer   : That information is not in my data, so I cannot answer it without guessing.
+
+[PASS] Q47 (request outside the system)
+   Question : Book me the 06:00 flight from Mumbai to Delhi.
+   Expected : none=booking is not supported
+   Got      : status=out_of_scope
+   Read by  : gemini
+   Answer   : I cannot make bookings. I can show the flight and the operator's contact details so you can book directly.
+
+[PASS] Q48 (out of scope)
+   Question : What will the weather be in Delhi tomorrow?
+   Expected : none=out of scope
+   Got      : status=out_of_scope
+   Read by  : gemini
+   Answer   : That is outside what I cover. I answer questions about flights between Delhi, Mumbai and Bengaluru, and about private aviation companies.
+

@@ -1,0 +1,34 @@
+# Secrets — never commit
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data with PII or large raw dumps
+data/raw/
+
+# Local database file (rebuilt by python -m app.local_db)
+avatition.db
+*.tmp
+avatition_v3.db

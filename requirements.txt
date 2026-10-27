@@ -1,0 +1,13 @@
+# Web backend (FastAPI serves the API and the frontend)
+fastapi>=0.110
+uvicorn>=0.29
+
+# Database (Neon PostgreSQL + pgvector)
+psycopg2-binary>=2.9
+
+# Local settings from .env
+python-dotenv>=1.0
+
+# Tests (the core tests use only the standard library; the API tests need the packages above)
+pytest>=8.0
+httpx>=0.27          # needed by FastAPI's TestClient

@@ -1,0 +1,304 @@
+[
+  {
+    "id": "IND-001",
+    "slug": "air-charter-services-pvt-ltd",
+    "name": "Air Charter Services Pvt. Ltd.",
+    "website": "https://www.aircharterservices.com",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "Delhi IGI Airport"],
+    "regions_served": ["India", "International"],
+    "services": [
+      "Private jet charter",
+      "Helicopter charter",
+      "Air ambulance / medevac",
+      "Empty leg offers",
+      "Ground handling (Delhi)",
+      "VIP lounge access",
+      "In-flight catering"
+    ],
+    "verified_fleet": [
+      "1 x Dassault Falcon 6X (large jet)",
+      "1 x Dassault Falcon 2000LX (large jet)",
+      "1 x Cessna Citation 560XL (midsize jet)",
+      "1 x Cessna Citation CJ2+ (light jet)",
+      "1 x Beechcraft King Air 200 (turboprop)",
+      "1 x AgustaWestland A109S Grand (helicopter)"
+    ],
+    "customer_segments": ["corporate", "HNWI", "medical"],
+    "description": "Delhi-based private aviation operator with a hangar at Indira Gandhi International Airport (Palam), offering jet charter, helicopter charter, and medevac. Operates a mixed fleet including Falcon 6X, Falcon 2000LX, Citation 560XL, Citation CJ2+, King Air 200, and an AW109S helicopter. Services are available 24/7 with in-house ground handling at Delhi.",
+    "verification_status": "medium",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/listing/charter/air-charter-services-pvt-ltd/",
+      "https://theflyingengineer.com/listing/air-charter-services-pvt-ltd/"
+    ]
+  },
+  {
+    "id": "IND-002",
+    "slug": "club-one-air",
+    "name": "Club One Air",
+    "website": "https://www.cluboneair.com",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "Mumbai", "Visakhapatnam"],
+    "regions_served": ["India"],
+    "services": [
+      "Private jet charter",
+      "Corporate travel"
+    ],
+    "verified_fleet": [
+      "5 x Dassault Falcon 2000 (large jet)",
+      "2 x Cessna Citation Excel (midsize jet)",
+      "1 x Cessna Citation II (light jet)",
+      "1 x Bombardier CRJ100 (regional jet)"
+    ],
+    "customer_segments": ["corporate", "HNWI"],
+    "description": "Indian private jet charter company operating primarily from Indira Gandhi International Airport, Delhi, with additional bases in Mumbai and Visakhapatnam. Fleet includes multiple Dassault Falcon 2000s, Cessna Citations, and a Bombardier CRJ100.",
+    "verification_status": "medium",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/Club_One_Air",
+      "https://theflyingengineer.com/listing/club-one-air/"
+    ]
+  },
+  {
+    "id": "IND-003",
+    "slug": "jetsetgo-aviation-services",
+    "name": "JetSetGo Aviation Services Pvt. Ltd.",
+    "website": "https://www.jetsetgo.in",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "aircraft_management", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "Mumbai", "Bengaluru"],
+    "regions_served": ["India"],
+    "services": [
+      "Private jet charter",
+      "Aircraft management",
+      "Maintenance contracts",
+      "Charter membership programs",
+      "Helicopter charter"
+    ],
+    "verified_fleet": [
+      "1 x Bombardier Global 6000 (large jet)",
+      "1 x Embraer Legacy 600 (large jet)",
+      "1 x Dassault Falcon 2000LX (large jet)",
+      "1 x AgustaWestland AW109 (helicopter)"
+    ],
+    "customer_segments": ["corporate", "HNWI", "leisure"],
+    "description": "Founded in 2014 by Kanika Tekriwal and Sudheer Perla, JetSetGo is one of India's largest private jet and helicopter operators. Headquartered in New Delhi, the company offers charter, aircraft management, and membership programs. Fleet of 12 aircraft including Bombardier Global 6000, Embraer Legacy 600, Falcon 2000LX, and helicopters.",
+    "verification_status": "high",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/JetSetGo",
+      "https://theflyingengineer.com/listing/charter/"
+    ]
+  },
+  {
+    "id": "IND-004",
+    "slug": "indopacific-aviation-services",
+    "name": "IndoPacific Aviation Services Pvt. Ltd.",
+    "website": "https://www.indopacificaviation.com",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "aircraft_management", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Private jet charter",
+      "Aircraft management (CAMO, crewing, dispatch)",
+      "MRO (CAR-145 approved)",
+      "Aircraft sourcing and sales",
+      "Aviation consultancy",
+      "Ground services coordination"
+    ],
+    "verified_fleet": null,
+    "customer_segments": ["corporate", "HNWI", "leisure"],
+    "description": "New Delhi-based private aviation company (part of the JetSetGo group) with headquarters at Nehru Place, South Delhi. Offers jet charter, full aircraft management including DGCA-compliant CAMO and crewing, CAR-145 approved MRO, and aircraft sourcing. Fleet includes light, midsize, large jets, and helicopters — specific models not publicly listed.",
+    "verification_status": "medium",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/listing/indopacific-aviation/"
+    ]
+  },
+  {
+    "id": "IND-005",
+    "slug": "india-fly-safe-aviation",
+    "name": "India Fly Safe Aviation Ltd. (IFSAL)",
+    "website": "https://www.safefly.aero",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Private jet charter",
+      "Helicopter charter",
+      "Air ambulance / medevac",
+      "Corporate shuttle programs",
+      "Aerial survey",
+      "Airport and helipad development and management",
+      "VIP charter"
+    ],
+    "verified_fleet": [
+      "1 x AgustaWestland AW139 (helicopter)",
+      "1 x AgustaWestland AW109S (helicopter)",
+      "1 x Pilatus PC-12/NG (turboprop)",
+      "1 x Embraer ERJ-135 (regional jet)",
+      "1 x Cessna Caravan 208 (turboprop)"
+    ],
+    "customer_segments": ["corporate", "HNWI", "medical", "government"],
+    "description": "Established in 1997, India Fly Safe Aviation (IFSAL) is a New Delhi-based NSOP (non-scheduled operator) offering jet and helicopter charter, air ambulance, corporate shuttles, and aerial survey. Fleet of 12 aircraft and helicopters including AW139, AW109S, Pilatus PC-12/NG, ERJ-135, and Cessna Caravan.",
+    "verification_status": "medium",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/listing/india-fly-safe-aviation/"
+    ]
+  },
+  {
+    "id": "IND-006",
+    "slug": "deccan-charters-pvt-ltd",
+    "name": "Deccan Charters Pvt. Ltd.",
+    "website": "https://www.deccanair.com",
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "aircraft_management", "operator"],
+    "hq_city": "Bengaluru",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "Bengaluru", "Chennai", "Hyderabad", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Corporate travel",
+      "Aircraft management",
+      "Maintenance and technical services",
+      "Air charter",
+      "Air ambulance",
+      "UDAN regional routes"
+    ],
+    "verified_fleet": [
+      "5 x fixed-wing aircraft (types unspecified)",
+      "12 x helicopters (types unspecified)"
+    ],
+    "customer_segments": ["corporate", "government", "medical"],
+    "description": "Bengaluru-headquartered operator with a major hub in New Delhi and operations across 15+ bases in India. Fleet of 17 aircraft (12 helicopters + 5 fixed-wing). Services include corporate travel, charter, air ambulance, MRO, aircraft management, and regional UDAN scheme flights. Note: HQ is Bengaluru, not Delhi NCR.",
+    "verification_status": "medium",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/listing/deccan-charters-private-limited/"
+    ]
+  },
+  {
+    "id": "IND-007",
+    "slug": "indamer-aviation-pvt-ltd",
+    "name": "Indamer Aviation Pvt. Ltd.",
+    "website": null,
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["fbo", "support"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP"],
+    "regions_served": ["India"],
+    "services": [
+      "FBO / ground handling at Delhi IGI",
+      "Aircraft line maintenance",
+      "Permit and handling services"
+    ],
+    "verified_fleet": null,
+    "customer_segments": ["corporate", "government", "HNWI"],
+    "description": "New Delhi-based FBO and ground handling provider operating at Indira Gandhi International Airport (VIDP). Also known through its subsidiary INDAMER MJETS AIRPORT SERVICES PVT LTD listed at ACUKWIK. Offers line maintenance, permit handling, and VIP ground services. Does not operate charter aircraft.",
+    "verification_status": "low",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://acukwik.com/Basic-Info/VIDP/INDAMER-MJETS-AIRPORT-SERVICES-PVT-LTD",
+      "https://marketplace.aviationweek.com/company/indamer-aviation-pvt-ltd"
+    ]
+  },
+  {
+    "id": "IND-008",
+    "slug": "heritage-aviation",
+    "name": "Heritage Aviation",
+    "website": null,
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Helicopter charter",
+      "Aircraft charter"
+    ],
+    "verified_fleet": null,
+    "customer_segments": ["corporate", "HNWI"],
+    "description": "New Delhi-based helicopter and aircraft charter company. Listed as an air charter provider in India. Specific fleet and website could not be confirmed from public sources at the time of data collection.",
+    "verification_status": "low",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/cat/charter/in/india/"
+    ]
+  },
+  {
+    "id": "IND-009",
+    "slug": "airluxxis",
+    "name": "AirLuxxis",
+    "website": null,
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "broker"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Aircraft sales",
+      "Private jet charter",
+      "Aviation consulting"
+    ],
+    "verified_fleet": null,
+    "customer_segments": ["corporate", "HNWI"],
+    "description": "New Delhi-based company offering aircraft sales (authorised Cirrus sales agent), private jet charter, and aviation consulting. Acts as a broker/agent rather than operating its own fleet. Specific website and contact details could not be confirmed from public sources at the time of data collection.",
+    "verification_status": "low",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/cat/charter/in/india/"
+    ]
+  },
+  {
+    "id": "IND-010",
+    "slug": "span-air",
+    "name": "Span Air",
+    "website": null,
+    "public_email": null,
+    "public_phone": null,
+    "categories": ["charter", "operator"],
+    "hq_city": "New Delhi",
+    "hq_country": "India",
+    "operating_locations": ["VIDP", "New Delhi"],
+    "regions_served": ["India"],
+    "services": [
+      "Private executive charter"
+    ],
+    "verified_fleet": null,
+    "customer_segments": ["corporate", "HNWI"],
+    "description": "New Delhi-based private executive charter company operating since 1995. One of India's older NSOP providers. Specific fleet details and website could not be confirmed from public sources at the time of data collection.",
+    "verification_status": "low",
+    "verified_at": "2026-10-17",
+    "source_urls": [
+      "https://theflyingengineer.com/cat/charter/in/india/"
+    ]
+  }
+]

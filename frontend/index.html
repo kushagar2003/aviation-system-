@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avatition — Private Aviation Discovery</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Avatition <span>Private aviation discovery, India</span></div>
+    <div class="account" id="account" hidden>
+      <span id="account-email"></span>
+      <button type="button" id="sign-out" class="ghost">Sign out</button>
+    </div>
+  </header>
+
+  <!-- Sign-in screen -->
+  <main id="auth-view" class="auth" hidden>
+    <section class="auth-card" aria-labelledby="auth-title">
+      <h1 id="auth-title">Sign in</h1>
+      <p class="muted">Search verified private aviation companies. Every result links to its sources.</p>
+
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="auth-form" class="tab active">Sign in</button>
+        <button type="button" role="tab" id="tab-register" aria-selected="false" aria-controls="auth-form" class="tab">Create account</button>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="200">
+        <p class="hint" id="password-hint" hidden>At least 8 characters.</p>
+
+        <button type="submit" id="auth-submit">Sign in</button>
+        <p class="error" id="auth-error" role="alert" hidden></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Chat screen -->
+  <main id="chat-view" class="chat" hidden>
+    <section class="panel" aria-label="Chat">
+      <div class="status-row">
+        <span id="mode-badge" class="badge">Direct mode</span>
+        <button type="button" id="new-chat" class="ghost">New search</button>
+      </div>
+
+      <div id="filters" class="filters" aria-live="polite"></div>
+
+      <div id="log" class="log" aria-live="polite" aria-label="Conversation"></div>
+
+      <div class="examples" id="examples">
+        <button type="button" class="chip">Charter operators in Delhi</button>
+        <button type="button" class="chip">Helicopter charter in Delhi</button>
+        <button type="button" class="chip">Air ambulance providers</button>
+        <button type="button" class="chip">Aircraft management in Delhi</button>
+      </div>
+
+      <form id="chat-form" class="composer">
+        <label for="message" class="sr-only">Ask a question</label>
+        <input id="message" name="message" type="text" maxlength="500" autocomplete="off"
+               placeholder="Ask, for example: midsize jets out of Delhi" required>
+        <button type="submit" id="send">Search</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

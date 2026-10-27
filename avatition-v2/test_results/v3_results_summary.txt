@@ -1,0 +1,47 @@
+AVATITION - v3 DATA AND TEST RESULTS (2026-10-18)
+=================================================
+
+DATA (version v3)
+  20 cities, 20 airports, 20 companies, 100 flights.
+  - Companies 1-10: unchanged from v2. Companies 11-20: real Indian operators from public listing pages
+    (sources stored with each company; missing phone/email/fleet shown as "Not publicly listed / verified").
+  - Flights 1-10: unchanged from v2. Flights 11-100: ILLUSTRATIVE. Real city pairs, durations from real distances;
+    times, seats, prices and status are made up (44 commercial, 56 private incl. 15 helicopter; 8 cancelled, 6 full).
+  - The same SQL file loads into PostgreSQL (tested) so it can go to Neon unchanged.
+
+HOW THE TESTING WORKS (the basis)
+  1. Questions are written by a script in many kinds: route + date, deadlines, cheapest, earliest, price/seat limits,
+     flights not available, counting, cancelled/full, aircraft, an operator's flights, contact details, needs in plain
+     words (medical, helicopter, pilgrimage, weddings, offshore ...), need + city, trust level, mixed company + flight,
+     messy wording (Bombay, BLR, lowercase, no punctuation), and questions it must NOT answer.
+  2. The expected answer for each question (the "answer key") is computed from the raw data with plain Python filters
+     in tools/make_v3_questions.py. It does not use the chatbot's code, so the chatbot is checked independently.
+  3. python -m app.live_check asks every question to the real chatbot (understanding -> SQL search -> answer) and
+     compares the flights / companies / values it offered with the answer key. A question passes only if the set
+     matches exactly (no missing and no extra results).
+
+RESULTS (simple-rules mode; Gemini cannot be reached from the test workspace)
+  First run, before any fix (main set, 108 questions) ..... 94 / 108  (87%)
+     14 failures: 12 real chatbot bugs, 2 mistakes in my answer key.
+     Bugs fixed: "I must be in X, I am in Y" read backwards (5); results capped at 10 companies (3);
+     "737 MAX 8" read as a price of Rs 8 (1); aircraft models missing (2); "government clients" wrongly required charter (1).
+  After fixes (main set) .................................. 108 / 108
+  HELD-OUT set, new wording, written AFTER the fixes ....... 98 / 101  (97%)   <- the fairest number
+     3 failures, one cause: "every flight operated by X" left out that operator's cancelled/full flights. Now fixed
+     (101 / 101), but that set is no longer unseen after this fix.
+  Original v2 questions (48) .............................. 48 / 48 (still passing on the v2 data)
+  Full automatic test suite (7 stages, cumulative) ......... all pass, 112 tests in the final stage
+
+GEMINI MODE (real run on the laptop, 2026-10-18 18:38, v2 data, 48 questions)
+  45 / 48 (94%). Gemini read all 48 questions itself (no fallback to rules).
+  Misses: "cheapest way" returned both flights instead of only the cheapest; "which flights use an A320neo" left out
+  full/cancelled flights; "government delegation to move" also listed a ground-handling-only company.
+  Fixed with small guard rules applied after Gemini (tested with Gemini-shaped replies). Not yet re-run with real Gemini.
+
+WHAT THESE NUMBERS DO NOT SHOW (limits)
+  - The questions were written by me, not by real users. Real users will phrase things in ways not covered.
+  - Gemini mode on the v3 questions is not measured yet. On the laptop run:  python -m app.live_check   (~8 minutes)
+  - Spelling mistakes and numeric dates like 25/10 are not handled by the simple rules (Gemini usually handles them).
+  - "Needs" (medical, pilgrimage, ...) are matched by words in each company's listed services, not by meaning
+    (embeddings are not built yet).
+  - Flight data is illustrative, so answers about flights prove the logic, not real availability.

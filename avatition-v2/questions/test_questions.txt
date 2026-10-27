@@ -1,0 +1,60 @@
+# Avatition test questions
+# One question per line. Columns are separated by " | ":
+#   ID | kind of question | needs meaning-matching (embeddings)? | the question | what a correct answer contains | check
+#
+# Needs meaning-matching:  no    = plain database lookup is enough
+#                          helps = lookup works, meaning-matching makes it better
+#                          yes   = the words in the question do not appear in the data, so meaning is needed
+# "check" is the machine-readable form of the expected answer, used by the automatic tests:
+#   flights=<flight numbers>   companies=<company codes>   value=<a fact>   none=<nothing should be recommended>
+# Flights are the project's own flight table (dates in October 2026, India time). Companies are the 10 in the database.
+# If the data does not contain the answer, the correct answer says so. Nothing may be invented.
+
+Q01 | route + deadline | no | I'm in Mumbai and need to reach Delhi by the morning of 22 October. | CM-201 (Air India, arrives 08:15 on 22 Oct, Rs 6,500 per seat, 22 seats) and PV-101 (JetSetGo private jet, arrives 09:10 on 21 Oct, Rs 6,50,000 per flight). | flights=CM-201,PV-101
+Q02 | route + deadline | no | I need to go from Delhi to Mumbai on the evening of 22 October. | The only evening flight, CM-202 (IndiGo, 20:00), is full, so it cannot be offered. Closest bookable option is PV-105 (Air Charter Services, departs 14:00, arrives 16:10). | flights=PV-105
+Q03 | route + deadline | no | Any flight from Bengaluru to Delhi on 20 October? | PV-104 (Deccan Charters private flight, 08:30 to 11:10, Rs 5,20,000 per flight, 6 seats). | flights=PV-104
+Q04 | route + deadline | no | Is there a flight from Bengaluru to Mumbai on 21 October? | CM-203 (Akasa Air, 09:30 to 11:10, Rs 4,800 per seat, 15 seats). | flights=CM-203
+Q05 | route + deadline | no | I want to fly from Delhi to Bengaluru on 23 October. | The only flight that day, CM-204 (IndiGo), is cancelled, so nothing can be offered for 23 Oct. The nearest flight is PV-103 (JetSetGo) on 22 Oct. | flights=PV-103
+Q06 | route + deadline | no | Mumbai to Bengaluru on 23 October please. | PV-106 (JetSetGo private flight, 11:00 to 12:40, Rs 5,20,000 per flight, 10 seats). | flights=PV-106
+Q07 | route + deadline | no | I need a flight from Delhi to Pune on 22 October. | The data only covers Delhi, Mumbai and Bengaluru, so there is no flight to offer. The answer must say so and not guess. | none=Pune is not covered
+Q08 | cheapest / earliest | no | What is the cheapest way to get from Mumbai to Delhi? | CM-201 at Rs 6,500 per seat. Must mention that PV-101 (private) is priced per flight, Rs 6,50,000, so the two prices are not like for like. | flights=CM-201
+Q09 | cheapest / earliest | no | What is the cheapest private flight between Delhi and Mumbai? | PV-105 at Rs 4,50,000 per flight (Delhi to Mumbai). The others are PV-102 Rs 6,00,000 and PV-101 Rs 6,50,000. | flights=PV-105
+Q10 | cheapest / earliest | no | Which flight leaves Mumbai the earliest? | PV-101 (21 Oct, 07:00). CM-201 leaves 22 Oct 06:00, PV-106 leaves 23 Oct. | flights=PV-101
+Q11 | several limits at once | no | A private flight from Delhi to Mumbai under Rs 5 lakh with at least 6 seats. | PV-105 only (Rs 4,50,000, 7 seats). PV-102 costs Rs 6,00,000 and is excluded. | flights=PV-105
+Q12 | several limits at once | no | A commercial flight from Mumbai to Delhi with at least 10 seats under Rs 7,000. | CM-201 (Rs 6,500, 22 seats). | flights=CM-201
+Q13 | several limits at once | no | We are 9 people. Which private flight can take us from Delhi to Bengaluru? | PV-103 (JetSetGo, Global 6000, 10 seats, Rs 9,50,000 per flight). | flights=PV-103
+Q14 | contact details | no | What are the phone number and email of Club One Air? | Phone +91 11 2677 9095, email sales@cluboneair.com. | value=+91 11 2677 9095;sales@cluboneair.com
+Q15 | contact details | no | How do I contact JetSetGo? | Phone +91 11 4084 5858 and the website. The email is not publicly listed and must be stated as such. | value=+91 11 4084 5858;Not publicly listed
+Q16 | contact details | no | Give me the contact details of IndoPacific Aviation. | Website only. Phone and email are not publicly listed and must be stated as such, never invented. | value=Not publicly listed
+Q17 | contact details | no | What is the website of Span Air? | http://www.spanair.in | value=http://www.spanair.in
+Q18 | listing / counting | no | How many companies are based in Delhi? | 9 (all except Deccan Charters). | value=9
+Q19 | listing / counting | no | Which companies are based in Bengaluru? | Deccan Charters. | companies=IND-006
+Q20 | listing / counting | no | List all private flights run by JetSetGo. | PV-101, PV-103, PV-106. | flights=PV-101,PV-103,PV-106
+Q21 | listing / counting | no | How many flights leave Delhi? | 5 (PV-102, PV-103, CM-202, PV-105, CM-204). Should add that CM-202 is full and CM-204 is cancelled. | value=5
+Q22 | aircraft type | no | Which flights use an Airbus A320neo? | CM-201, CM-202, CM-204. | flights=CM-201,CM-202,CM-204
+Q23 | aircraft type | no | Which companies have a Falcon 2000 in their fleet? | Club One Air (5 x Falcon 2000), Air Charter Services (Falcon 2000LX), JetSetGo (Falcon 2000LX). | companies=IND-001,IND-002,IND-003
+Q24 | aircraft type | helps | Which companies have helicopters? | Verified fleets: Air Charter Services, JetSetGo, IFSAL, Deccan Charters. Heritage Aviation advertises helicopter charter but has no verified fleet, so it is shown separately as an unverified claim. | companies=IND-001,IND-003,IND-005,IND-006
+Q25 | flight status | no | Which flights are cancelled? | CM-204. | flights=CM-204
+Q26 | flight status | no | Which flights are fully booked? | CM-202. | flights=CM-202
+Q27 | trust / sources | no | Where does the information about Heritage Aviation come from? | The source links stored for it, with its verification level (low). | companies=IND-008
+Q28 | trust / sources | no | Which companies have the highest verification level? | JetSetGo (high). | companies=IND-003
+Q29 | trust / sources | no | How reliable is the information on Span Air? | Verification level low. Its fleet is not publicly verified and its email is not publicly listed. | companies=IND-010
+Q30 | comparison | helps | Compare Air Charter Services and Club One Air. | Side by side: services, fleet, customer types, verification level, contacts. | companies=IND-001,IND-002
+Q31 | comparison | no | Compare flight PV-101 with flight CM-201. | PV-101: private, 07:00 21 Oct to 09:10, Rs 6,50,000 per flight. CM-201: commercial, 06:00 22 Oct to 08:15, Rs 6,500 per seat. | flights=PV-101,CM-201
+Q32 | need in plain words | yes | Who can handle a medical emergency? | Companies that list air ambulance: Air Charter Services, IFSAL, Deccan Charters. | companies=IND-001,IND-005,IND-006
+Q33 | need in plain words | yes | I need to get my mother to a hospital in another city urgently. | Same as Q32: air ambulance providers, with their contact details. Must not promise a flight. | companies=IND-001,IND-005,IND-006
+Q34 | need in plain words | yes | Which company has helicopters for a corporate visit? | Air Charter Services, JetSetGo, IFSAL, Deccan Charters (verified helicopters and corporate customers). Heritage Aviation only as an unverified claim. | companies=IND-001,IND-003,IND-005,IND-006
+Q35 | VIP / government | yes | We have a government delegation to move. Who can help? | IFSAL and Deccan Charters (government customers). Indamer Aviation only as ground handling support, not as a flight operator. | companies=IND-005,IND-006
+Q36 | occasion | yes | I'm having a party and I want to have the party on a flight. | No company states a party service. The honest answer says there is no verified match and may suggest asking charter companies that offer catering (Air Charter Services) or leisure charters (JetSetGo, IndoPacific). | none=no company lists a party service
+Q37 | occasion | yes | We want a honeymoon trip on a private jet. | No company states honeymoon packages. Closest are leisure charter companies (JetSetGo, IndoPacific), clearly labelled as the nearest match, not as verified. | none=no company lists honeymoon packages
+Q38 | vague wish | yes | Something luxurious for the whole family to travel together. | Private charter companies serving wealthy individuals and leisure travellers, such as JetSetGo and IndoPacific. Labelled as a best match. | companies=IND-003,IND-004
+Q39 | vague wish | helps | I want to buy my own aircraft. Who can help? | IndoPacific (sourcing and sales) and AirLuxxis (aircraft sales). | companies=IND-004,IND-009
+Q40 | business situation | helps | Our executives travel between Delhi and Mumbai every week. | Companies that list corporate travel or shuttle services (Club One Air, IFSAL, Deccan Charters), plus the Delhi to Mumbai flights PV-102 and PV-105. | companies=IND-002,IND-005,IND-006
+Q41 | business situation | helps | My aircraft needs maintenance in Delhi. | Indamer (line maintenance), IndoPacific (approved maintenance organisation), JetSetGo (maintenance contracts), and Deccan Charters (maintenance and technical services; based in Bengaluru, lists New Delhi as an operating location). | companies=IND-003,IND-004,IND-006,IND-007
+Q42 | business situation | helps | I own a jet and need ground handling at Delhi airport. | Indamer Aviation (FBO and ground handling at Delhi) and Air Charter Services (ground handling at Delhi). | companies=IND-001,IND-007
+Q43 | mixed (company + flight) | helps | Which medical-capable company has a flight from Delhi to Mumbai on 22 October? | Air Charter Services (air ambulance) with flight PV-105. | companies=IND-001;flights=PV-105
+Q44 | mixed (company + flight) | no | Show me private flights from Mumbai to Delhi run by a company that offers helicopter charter. | PV-101 (JetSetGo, which lists helicopter charter). | flights=PV-101
+Q45 | general idea | yes | What is an empty leg flight? | Concept questions need explanation text that is not in the database yet. Today the system can only say that Air Charter Services lists empty leg offers. | none=needs explanation text (not built yet)
+Q46 | missing data | no | Which company has the cheapest helicopter? | No helicopter prices are stored, so there is no answer. The answer must say so. | none=no helicopter prices in the data
+Q47 | request outside the system | no | Book me the 06:00 flight from Mumbai to Delhi. | The system cannot book. It can show CM-201 and the airline name, and for private flights the company contact details. | none=booking is not supported
+Q48 | out of scope | no | What will the weather be in Delhi tomorrow? | Politely say this is outside what the assistant covers. | none=out of scope

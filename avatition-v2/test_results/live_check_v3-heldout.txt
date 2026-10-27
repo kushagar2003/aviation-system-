@@ -1,0 +1,736 @@
+AVATITION LIVE CHECK (real pipeline, real database file, real questions)
+==========================================================================
+Run at   : 2026-10-18 15:04
+Understood by: simple rules (no Gemini)
+Data     : version v3 (local SQLite file built from database/v3/02_data.sql)
+Questions: questions/test_questions_v3_heldout.txt
+RESULT   : 101 of 101 questions answered as expected
+
+By kind of question:
+   aircraft type                5/5
+   cheapest                     6/6
+   contact details              8/8
+   counting                     8/8
+   earliest                     4/4
+   flight status                3/3
+   listing                      2/2
+   messy wording                8/8
+   mixed (company + flight)     2/2
+   need + city                  2/2
+   need in plain words          12/12
+   not available                4/4
+   operator's flights           4/4
+   route + date                 12/12
+   route + deadline             8/8
+   several limits               9/9
+   should not answer            3/3
+   trust / sources              1/1
+
+--------------------------------------------------------------------------
+[PASS] H001 (route + date)
+   Question : Can I fly Indore to Bengaluru on 30 Oct?
+   Expected : flights=CM-230
+   Got      : flights=CM-230
+   Read by  : rules
+   Answer   : I found 1 flight: CM-230 SpiceJet, departs 30 Oct, 17:15, arrives 30 Oct, 19:10, Rs 7,700 per seat.
+
+[PASS] H002 (route + date)
+   Question : Can I fly Bengaluru to Lucknow on 25 Oct?
+   Expected : flights=CM-241
+   Got      : flights=CM-241
+   Read by  : rules
+   Answer   : I found 1 flight: CM-241 IndiGo, departs 25 Oct, 10:45, arrives 25 Oct, 13:20, Rs 9,800 per seat.
+
+[PASS] H003 (route + date)
+   Question : I need to travel from Delhi to Chandigarh on 23rd October.
+   Expected : flights=CM-223
+   Got      : flights=CM-223
+   Read by  : rules
+   Answer   : I found 1 flight: CM-223 Air India, departs 23 Oct, 11:45, arrives 23 Oct, 12:30, Rs 4,300 per seat.
+
+[PASS] H004 (route + date)
+   Question : Show me flights from Guwahati to Delhi on Oct 20.
+   Expected : flights=CM-228
+   Got      : flights=CM-228
+   Read by  : rules
+   Answer   : I found 1 flight: CM-228 IndiGo, departs 20 Oct, 15:00, arrives 20 Oct, 17:30, Rs 10,000 per seat.
+
+[PASS] H005 (route + date)
+   Question : I need to travel from Kochi to Mumbai on 27th October.
+   Expected : flights=CM-222
+   Got      : flights=CM-222
+   Read by  : rules
+   Answer   : I found 1 flight: CM-222 SpiceJet, departs 27 Oct, 18:45, arrives 27 Oct, 20:40, Rs 8,200 per seat.
+
+[PASS] H006 (route + date)
+   Question : Show me flights from Ahmedabad to Mumbai on Oct 26.
+   Expected : flights=CM-212
+   Got      : flights=CM-212
+   Read by  : rules
+   Answer   : I found 1 flight: CM-212 Akasa Air, departs 26 Oct, 12:00, arrives 26 Oct, 13:05, Rs 4,500 per seat.
+
+[PASS] H007 (route + date)
+   Question : I need to travel from Delhi to Udaipur on 27th October.
+   Expected : flights=CM-235
+   Got      : flights=CM-235
+   Read by  : rules
+   Answer   : I found 1 flight: CM-235 Air India, departs 27 Oct, 13:30, arrives 27 Oct, 14:40, Rs 5,400 per seat.
+
+[PASS] H008 (route + date)
+   Question : I need to travel from Ahmedabad to Kolkata on 21st October.
+   Expected : flights=PV-126
+   Got      : flights=PV-126
+   Read by  : rules
+   Answer   : I found 1 flight: PV-126 Span Air, departs 21 Oct, 20:00, arrives 21 Oct, 22:40, Rs 10,70,000 per flight.
+
+[PASS] H009 (route + date)
+   Question : Can I fly Lucknow to Goa on 23 Oct?
+   Expected : flights=PV-140
+   Got      : flights=PV-140
+   Read by  : rules
+   Answer   : I found 1 flight: PV-140 Poonawalla Aviation, departs 23 Oct, 14:30, arrives 23 Oct, 17:00, Rs 8,10,000 per flight.
+
+[PASS] H010 (route + date)
+   Question : Show me flights from Udaipur to Ahmedabad on Oct 26.
+   Expected : flights=PV-148
+   Got      : flights=PV-148
+   Read by  : rules
+   Answer   : I found 1 flight: PV-148 Himalayan Heli Services Pvt. Ltd., departs 26 Oct, 11:00, arrives 26 Oct, 12:15, Rs 2,50,000 per flight.
+
+[PASS] H011 (route + date)
+   Question : I need to travel from Goa to Bengaluru on 30th October.
+   Expected : flights=CM-216
+   Got      : flights=CM-216
+   Read by  : rules
+   Answer   : I found 1 flight: CM-216 Air India, departs 30 Oct, 15:45, arrives 30 Oct, 16:50, Rs 4,800 per seat.
+
+[PASS] H012 (route + date)
+   Question : Show me flights from Chandigarh to Amritsar on Oct 31.
+   Expected : flights=PV-150
+   Got      : flights=PV-150
+   Read by  : rules
+   Answer   : I found 1 flight: PV-150 Global Vectra Helicorp, departs 31 Oct, 13:30, arrives 31 Oct, 14:45, Rs 3,00,000 per flight.
+
+[PASS] H013 (route + deadline)
+   Question : Need to arrive in Lucknow by 25th October, starting from Bengaluru.
+   Expected : flights=CM-241
+   Got      : flights=CM-241
+   Read by  : rules
+   Answer   : I found 1 flight: CM-241 IndiGo, departs 25 Oct, 10:45, arrives 25 Oct, 13:20, Rs 9,800 per seat.
+
+[PASS] H014 (route + deadline)
+   Question : Need to arrive in Pune by 20th October, starting from Bengaluru.
+   Expected : flights=CM-213
+   Got      : flights=CM-213
+   Read by  : rules
+   Answer   : I found 1 flight: CM-213 SpiceJet, departs 20 Oct, 12:45, arrives 20 Oct, 14:10, Rs 5,800 per seat.
+
+[PASS] H015 (route + deadline)
+   Question : Need to arrive in Mumbai by 19th October, starting from Hyderabad.
+   Expected : flights=CM-208
+   Got      : flights=CM-208
+   Read by  : rules
+   Answer   : I found 1 flight: CM-208 SpiceJet, departs 19 Oct, 19:45, arrives 19 Oct, 21:05, Rs 5,800 per seat.
+
+[PASS] H016 (route + deadline)
+   Question : Need to arrive in Hyderabad by 30th October, starting from Ahmedabad.
+   Expected : flights=CM-242,PV-139
+   Got      : flights=CM-242,PV-139
+   Read by  : rules
+   Answer   : I found 2 flights: CM-242 IndiGo, departs 24 Oct, 08:30, arrives 24 Oct, 10:10, Rs 6,600 per seat; PV-139 Poonawalla Aviation, departs 30 Oct, 12:30, arrives 30 Oct, 14:10, Rs 5,90,000 per flight.
+
+[PASS] H017 (route + deadline)
+   Question : Need to arrive in Nagpur by 28th October, starting from Bengaluru.
+   Expected : flights=CM-231
+   Got      : flights=CM-231
+   Read by  : rules
+   Answer   : I found 1 flight: CM-231 IndiGo, departs 28 Oct, 20:30, arrives 28 Oct, 22:10, Rs 5,800 per seat.
+
+[PASS] H018 (route + deadline)
+   Question : Need to arrive in Kolkata by 25th October, starting from Pune.
+   Expected : flights=PV-137
+   Got      : flights=PV-137
+   Read by  : rules
+   Answer   : I found 1 flight: PV-137 Deccan Charters Pvt. Ltd., departs 25 Oct, 11:45, arrives 25 Oct, 14:25, Rs 9,00,000 per flight.
+
+[PASS] H019 (route + deadline)
+   Question : Need to arrive in Kolkata by 21st October, starting from Ahmedabad.
+   Expected : flights=PV-126
+   Got      : flights=PV-126
+   Read by  : rules
+   Answer   : I found 1 flight: PV-126 Span Air, departs 21 Oct, 20:00, arrives 21 Oct, 22:40, Rs 10,70,000 per flight.
+
+[PASS] H020 (route + deadline)
+   Question : Need to arrive in Delhi by 30th October, starting from Chandigarh.
+   Expected : flights=CM-224,PV-145
+   Got      : flights=CM-224,PV-145
+   Read by  : rules
+   Answer   : I found 2 flights: PV-145 Thumby Aviation, departs 24 Oct, 06:45, arrives 24 Oct, 08:05, Rs 3,30,000 per flight; CM-224 SpiceJet, departs 30 Oct, 17:30, arrives 30 Oct, 18:15, Rs 3,700 per seat.
+
+[PASS] H021 (cheapest)
+   Question : Lowest price option Delhi to Lucknow?
+   Expected : flights=CM-219
+   Got      : flights=CM-219
+   Read by  : rules
+   Answer   : CM-219 (SpiceJet) is the cheapest match: Rs 4,500 per seat, departing 31 Oct, 20:45.
+
+[PASS] H022 (cheapest)
+   Question : Lowest price option Kochi to Amritsar?
+   Expected : flights=PV-125
+   Got      : flights=PV-125
+   Read by  : rules
+   Answer   : PV-125 (Poonawalla Aviation) is the cheapest match: Rs 14,40,000 per flight, departing 29 Oct, 14:45.
+
+[PASS] H023 (cheapest)
+   Question : Lowest price option Bengaluru to Nagpur?
+   Expected : flights=CM-231
+   Got      : flights=CM-231
+   Read by  : rules
+   Answer   : CM-231 (IndiGo) is the cheapest match: Rs 5,800 per seat, departing 28 Oct, 20:30.
+
+[PASS] H024 (cheapest)
+   Question : Lowest price option Bengaluru to Pune?
+   Expected : flights=CM-213
+   Got      : flights=CM-213
+   Read by  : rules
+   Answer   : CM-213 (SpiceJet) is the cheapest match: Rs 5,800 per seat, departing 20 Oct, 12:45.
+
+[PASS] H025 (cheapest)
+   Question : Lowest price option Nagpur to Delhi?
+   Expected : flights=PV-133
+   Got      : flights=PV-133
+   Read by  : rules
+   Answer   : PV-133 (Deccan Charters Pvt. Ltd.) is the cheapest match: Rs 6,10,000 per flight, departing 20 Oct, 10:15.
+
+[PASS] H026 (cheapest)
+   Question : Lowest price option Bengaluru to Mumbai?
+   Expected : flights=CM-203
+   Got      : flights=CM-203
+   Read by  : rules
+   Answer   : CM-203 (Akasa Air) is the cheapest match: Rs 4,800 per seat, departing 21 Oct, 09:30.
+
+[PASS] H027 (earliest)
+   Question : What is the earliest flight out of Pune?
+   Expected : flights=CM-240
+   Got      : flights=CM-240
+   Read by  : rules
+   Answer   : CM-240 (Air India) is the earliest match: Rs 7,600 per seat, departing 21 Oct, 16:15.
+
+[PASS] H028 (earliest)
+   Question : What is the earliest flight out of Bhubaneswar?
+   Expected : flights=PV-127
+   Got      : flights=PV-127
+   Read by  : rules
+   Answer   : PV-127 (JetSetGo Aviation Services Pvt. Ltd.) is the earliest match: Rs 7,50,000 per flight, departing 20 Oct, 11:30.
+
+[PASS] H029 (earliest)
+   Question : What is the earliest flight out of Guwahati?
+   Expected : flights=CM-228
+   Got      : flights=CM-228
+   Read by  : rules
+   Answer   : CM-228 (IndiGo) is the earliest match: Rs 10,000 per seat, departing 20 Oct, 15:00.
+
+[PASS] H030 (earliest)
+   Question : What is the earliest flight out of Lucknow?
+   Expected : flights=CM-220
+   Got      : flights=CM-220
+   Read by  : rules
+   Answer   : CM-220 (Akasa Air) is the earliest match: Rs 4,800 per seat, departing 19 Oct, 06:15.
+
+[PASS] H031 (several limits)
+   Question : Private charter Bengaluru to Chennai, budget up to 4 lakh rupees.
+   Expected : flights=PV-149
+   Got      : flights=PV-149
+   Read by  : rules
+   Answer   : I found 1 flight: PV-149 Aone Helicopters, departs 29 Oct, 07:30, arrives 29 Oct, 09:00, Rs 3,20,000 per flight.
+
+[PASS] H032 (several limits)
+   Question : Private charter Pune to Mumbai, budget up to 3 lakh rupees.
+   Expected : flights=PV-143
+   Got      : flights=PV-143
+   Read by  : rules
+   Answer   : I found 1 flight: PV-143 Global Vectra Helicorp, departs 31 Oct, 20:45, arrives 31 Oct, 21:35, Rs 2,30,000 per flight.
+
+[PASS] H033 (several limits)
+   Question : Private charter Udaipur to Jaipur, budget up to 4 lakh rupees.
+   Expected : flights=PV-109
+   Got      : flights=PV-109
+   Read by  : rules
+   Answer   : I found 1 flight: PV-109 EMSOS Aviation, departs 23 Oct, 07:30, arrives 23 Oct, 08:25, Rs 3,30,000 per flight.
+
+[PASS] H034 (several limits)
+   Question : Private charter Bhubaneswar to Mumbai, budget up to 8 lakh rupees.
+   Expected : flights=PV-127
+   Got      : flights=PV-127
+   Read by  : rules
+   Answer   : I found 1 flight: PV-127 JetSetGo Aviation Services Pvt. Ltd., departs 20 Oct, 11:30, arrives 20 Oct, 13:50, Rs 7,50,000 per flight.
+
+[PASS] H035 (several limits)
+   Question : Private charter Varanasi to Chennai, budget up to 9 lakh rupees.
+   Expected : flights=PV-141
+   Got      : flights=PV-141
+   Read by  : rules
+   Answer   : I found 1 flight: PV-141 India Fly Safe Aviation Ltd. (IFSAL), departs 23 Oct, 16:45, arrives 23 Oct, 19:10, Rs 8,30,000 per flight.
+
+[PASS] H036 (several limits)
+   Question : Private flight for 6 passengers from Bengaluru to Delhi?
+   Expected : flights=PV-104
+   Got      : flights=PV-104
+   Read by  : rules
+   Answer   : I found 1 flight: PV-104 Deccan Charters Pvt. Ltd., departs 20 Oct, 08:30, arrives 20 Oct, 11:10, Rs 5,20,000 per flight.
+
+[PASS] H037 (several limits)
+   Question : Private flight for 5 passengers from Varanasi to Kolkata?
+   Expected : flights=PV-132
+   Got      : flights=PV-132
+   Read by  : rules
+   Answer   : I found 1 flight: PV-132 Aone Helicopters, departs 19 Oct, 11:15, arrives 19 Oct, 12:35, Rs 4,70,000 per flight.
+
+[PASS] H038 (several limits)
+   Question : Private flight for 5 passengers from Delhi to Jaipur?
+   Expected : flights=PV-146
+   Got      : flights=PV-146
+   Read by  : rules
+   Answer   : I found 1 flight: PV-146 Pawan Hans Helicopters Ltd., departs 23 Oct, 14:30, arrives 23 Oct, 15:50, Rs 2,70,000 per flight.
+
+[PASS] H039 (several limits)
+   Question : Private flight for 4 passengers from Jaipur to Udaipur?
+   Expected : flights=PV-147
+   Got      : flights=PV-147
+   Read by  : rules
+   Answer   : I found 1 flight: PV-147 Chipsan Aviation Pvt. Ltd., departs 29 Oct, 15:45, arrives 29 Oct, 17:25, Rs 4,10,000 per flight.
+
+[PASS] H040 (not available)
+   Question : I want to fly from Bengaluru to Delhi on 31 October.
+   Expected : flights=PV-104
+   Got      : flights=PV-104
+   Read by  : rules
+   Answer   : No bookable flight matches that. PV-112 is full. Closest options: the nearest flights on this route on other days.
+
+[PASS] H041 (not available)
+   Question : I want to fly from Delhi to Amritsar on 28 October.
+   Expected : flights=PV-121
+   Got      : flights=PV-121
+   Read by  : rules
+   Answer   : No bookable flight matches that. CM-237 is cancelled. Closest options: the nearest flights on this route on other days.
+
+[PASS] H042 (not available)
+   Question : I want to fly from Delhi to Chandigarh on 29 October.
+   Expected : flights=CM-223,PV-155
+   Got      : flights=CM-223,PV-155
+   Read by  : rules
+   Answer   : No bookable flight matches that. PV-144 is cancelled. Closest options: the nearest flights on this route on other days.
+
+[PASS] H043 (not available)
+   Question : I want to fly from Delhi to Varanasi on 30 October.
+   Expected : flights=CM-233
+   Got      : flights=CM-233
+   Read by  : rules
+   Answer   : No bookable flight matches that. PV-128 is cancelled. Closest options: the nearest flights on this route on other days.
+
+[PASS] H044 (counting)
+   Question : How many flights depart from Mumbai?
+   Expected : value=10 flight
+   Got      : value found
+   Read by  : rules
+   Answer   : 10 flights match.
+
+[PASS] H045 (counting)
+   Question : How many flights depart from Kochi?
+   Expected : value=3 flight
+   Got      : value found
+   Read by  : rules
+   Answer   : 3 flights match.
+
+[PASS] H046 (counting)
+   Question : How many flights depart from Chandigarh?
+   Expected : value=4 flight
+   Got      : value found
+   Read by  : rules
+   Answer   : 4 flights match.
+
+[PASS] H047 (counting)
+   Question : How many flights depart from Udaipur?
+   Expected : value=5 flight
+   Got      : value found
+   Read by  : rules
+   Answer   : 5 flights match.
+
+[PASS] H048 (counting)
+   Question : Count the operators headquartered in Delhi.
+   Expected : value=13 compan
+   Got      : value found
+   Read by  : rules
+   Answer   : 13 companies match: JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., Club One Air, IndoPacific Aviation Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Pawan Hans Helicopters Ltd., Indamer Aviation Pvt. Ltd., Heritage Aviation, AirLuxxis, Span Air, Chipsan Aviation Pvt. Ltd., EMSOS Aviation, Himalayan Heli Services Pvt. Ltd.
+
+[PASS] H049 (counting)
+   Question : Count the operators headquartered in Mumbai.
+   Expected : value=2 compan
+   Got      : value found
+   Read by  : rules
+   Answer   : 2 companies match: Global Vectra Helicorp, Aman Aviation & Aerospace Solutions.
+
+[PASS] H050 (counting)
+   Question : Count the operators headquartered in Bengaluru.
+   Expected : value=2 compan
+   Got      : value found
+   Read by  : rules
+   Answer   : 2 companies match: Deccan Charters Pvt. Ltd., Thumby Aviation.
+
+[PASS] H051 (counting)
+   Question : Count the operators headquartered in Jaipur.
+   Expected : value=1 compan
+   Got      : value found
+   Read by  : rules
+   Answer   : 1 company match: Aone Helicopters.
+
+[PASS] H052 (flight status)
+   Question : Which flights from Delhi are cancelled?
+   Expected : flights=CM-204,CM-237,PV-128,PV-144
+   Got      : flights=CM-204,CM-237,PV-128,PV-144
+   Read by  : rules
+   Answer   : I found 4 flights: CM-204 IndiGo, departs 23 Oct, 16:00, arrives 23 Oct, 18:45, Rs 8,200 per seat; CM-237 IndiGo, departs 28 Oct, 14:15, arrives 28 Oct, 15:15, Rs 4,500 per seat; PV-144 Aman Aviation & Aerospace Solutions, departs 29 Oct, 18:15, arrives 29 Oct, 19:35, Rs 3,00,000 per flight; PV-128 IndoPacific Aviation Services Pvt. Ltd., departs 30 Oct, 15:00, arrives 30 Oct, 16:25, Rs 5,90,000 per flight.
+
+[PASS] H053 (flight status)
+   Question : Which flights from Varanasi are cancelled?
+   Expected : flights=PV-129
+   Got      : flights=PV-129
+   Read by  : rules
+   Answer   : I found 1 flight: PV-129 JetSetGo Aviation Services Pvt. Ltd., departs 27 Oct, 07:15, arrives 27 Oct, 08:35, Rs 5,40,000 per flight.
+
+[PASS] H054 (flight status)
+   Question : Show me the sold out flights.
+   Expected : flights=CM-202,CM-209,CM-238,PV-112,PV-135,PV-156
+   Got      : flights=CM-202,CM-209,CM-238,PV-112,PV-135,PV-156
+   Read by  : rules
+   Answer   : I found 6 flights: CM-202 IndiGo, departs 22 Oct, 20:00, arrives 22 Oct, 22:15, Rs 7,200 per seat; PV-156 Aone Helicopters, departs 22 Oct, 20:45, arrives 22 Oct, 22:40, Rs 4,40,000 per flight; CM-209 Akasa Air, departs 24 Oct, 20:30, arrives 24 Oct, 23:15, Rs 11,200 per seat; PV-135 Poonawalla Aviation, departs 26 Oct, 14:15, arrives 26 Oct, 15:25, Rs 5,00,000 per flight.
+
+[PASS] H055 (aircraft type)
+   Question : Which flights use a A320neo?
+   Expected : flights=CM-201,CM-202,CM-204,CM-207,CM-210,CM-215,CM-216,CM-217,CM-223,CM-226,CM-227,CM-228,CM-231,CM-232,CM-233,CM-235,CM-237,CM-239,CM-240,CM-241,CM-242,CM-243,CM-244
+   Got      : flights=CM-201,CM-202,CM-204,CM-207,CM-210,CM-215,CM-216,CM-217,CM-223,CM-226,CM-227,CM-228,CM-231,CM-232,CM-233,CM-235,CM-237,CM-239,CM-240,CM-241,CM-242,CM-243,CM-244
+   Read by  : rules
+   Answer   : I found 23 flights: CM-207 IndiGo, departs 19 Oct, 15:00, arrives 19 Oct, 16:20, Rs 4,800 per seat; CM-239 IndiGo, departs 19 Oct, 16:00, arrives 19 Oct, 18:40, Rs 9,800 per seat; CM-228 IndiGo, departs 20 Oct, 15:00, arrives 20 Oct, 17:30, Rs 10,000 per seat; CM-217 IndiGo, departs 20 Oct, 16:45, arrives 20 Oct, 17:30, Rs 3,900 per seat.
+
+[PASS] H056 (aircraft type)
+   Question : Which flights use a H125?
+   Expected : flights=PV-148,PV-155
+   Got      : flights=PV-148,PV-155
+   Read by  : rules
+   Answer   : I found 2 flights: PV-155 Himalayan Heli Services Pvt. Ltd., departs 25 Oct, 06:15, arrives 25 Oct, 07:35, Rs 3,10,000 per flight; PV-148 Himalayan Heli Services Pvt. Ltd., departs 26 Oct, 11:00, arrives 26 Oct, 12:15, Rs 2,50,000 per flight.
+
+[PASS] H057 (aircraft type)
+   Question : Which companies have a Falcon 2000 in their fleet?
+   Expected : companies=IND-001,IND-002,IND-003
+   Got      : companies=IND-001,IND-002,IND-003
+   Read by  : rules
+   Answer   : 3 companies match: JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., Club One Air.
+
+[PASS] H058 (aircraft type)
+   Question : Which companies have a Robinson R44 in their fleet?
+   Expected : companies=IND-012,IND-014
+   Got      : companies=IND-012,IND-014
+   Read by  : rules
+   Answer   : 2 companies match: Aone Helicopters, Aman Aviation & Aerospace Solutions.
+
+[PASS] H059 (aircraft type)
+   Question : Which companies have a H125 in their fleet?
+   Expected : companies=IND-015,IND-018,IND-020
+   Got      : companies=IND-015,IND-018,IND-020
+   Read by  : rules
+   Answer   : 3 companies match: Thumby Aviation, Chipsan Aviation Pvt. Ltd., Himalayan Heli Services Pvt. Ltd.
+
+[PASS] H060 (operator's flights)
+   Question : Show me every flight operated by Aman Aviation.
+   Expected : flights=PV-144,PV-151
+   Got      : flights=PV-144,PV-151
+   Read by  : rules
+   Answer   : I found 2 flights: PV-151 Aman Aviation & Aerospace Solutions, departs 20 Oct, 14:15, arrives 20 Oct, 15:35, Rs 3,20,000 per flight; PV-144 Aman Aviation & Aerospace Solutions, departs 29 Oct, 18:15, arrives 29 Oct, 19:35, Rs 3,00,000 per flight.
+
+[PASS] H061 (operator's flights)
+   Question : Show me every flight operated by Global Vectra Helicorp.
+   Expected : flights=PV-143,PV-150
+   Got      : flights=PV-143,PV-150
+   Read by  : rules
+   Answer   : I found 2 flights: PV-150 Global Vectra Helicorp, departs 31 Oct, 13:30, arrives 31 Oct, 14:45, Rs 3,00,000 per flight; PV-143 Global Vectra Helicorp, departs 31 Oct, 20:45, arrives 31 Oct, 21:35, Rs 2,30,000 per flight.
+
+[PASS] H062 (operator's flights)
+   Question : Show me every flight operated by IndoPacific.
+   Expected : flights=PV-128,PV-138
+   Got      : flights=PV-128,PV-138
+   Read by  : rules
+   Answer   : I found 2 flights: PV-128 IndoPacific Aviation Services Pvt. Ltd., departs 30 Oct, 15:00, arrives 30 Oct, 16:25, Rs 5,90,000 per flight; PV-138 IndoPacific Aviation Services Pvt. Ltd., departs 30 Oct, 18:30, arrives 30 Oct, 21:40, Rs 10,60,000 per flight.
+
+[PASS] H063 (operator's flights)
+   Question : Show me every flight operated by Air Charter Services.
+   Expected : flights=PV-105,PV-110,PV-117,PV-123
+   Got      : flights=PV-105,PV-110,PV-117,PV-123
+   Read by  : rules
+   Answer   : I found 4 flights: PV-105 Air Charter Services Pvt. Ltd., departs 22 Oct, 14:00, arrives 22 Oct, 16:10, Rs 4,50,000 per flight; PV-123 Air Charter Services Pvt. Ltd., departs 29 Oct, 13:00, arrives 29 Oct, 15:05, Rs 8,50,000 per flight; PV-117 Air Charter Services Pvt. Ltd., departs 30 Oct, 08:00, arrives 30 Oct, 09:55, Rs 6,30,000 per flight; PV-110 Air Charter Services Pvt. Ltd., departs 31 Oct, 17:15, arrives 31 Oct, 19:35, Rs 8,80,000 per flight.
+
+[PASS] H064 (contact details)
+   Question : Aone Helicopters website link?
+   Expected : value=https://aonehelicopters.com/
+   Got      : value found
+   Read by  : rules
+   Answer   : Aone Helicopters: phone +91 70230 77077, email Not publicly listed, website https://aonehelicopters.com/. Verification level: low (checked 2026-10-18).
+
+[PASS] H065 (contact details)
+   Question : Aman Aviation website link?
+   Expected : value=https://amanaviation.in/
+   Got      : value found
+   Read by  : rules
+   Answer   : Aman Aviation & Aerospace Solutions: phone +91 72083 33091, email Not publicly listed, website https://amanaviation.in/. Verification level: low (checked 2026-10-18).
+
+[PASS] H066 (contact details)
+   Question : How can I call IndoPacific?
+   Expected : value=Not publicly listed
+   Got      : value found
+   Read by  : rules
+   Answer   : IndoPacific Aviation Services Pvt. Ltd.: phone Not publicly listed, email Not publicly listed, website https://www.indopacificaviation.com. Verification level: medium (checked 2026-10-17).
+
+[PASS] H067 (contact details)
+   Question : How can I call AirLuxxis?
+   Expected : value=+91 95605 35566
+   Got      : value found
+   Read by  : rules
+   Answer   : AirLuxxis: phone +91 95605 35566, email contactus@airluxxis.com, website https://airluxxis.com. Verification level: low (checked 2026-10-17).
+
+[PASS] H068 (contact details)
+   Question : Email id for Heli Tours?
+   Expected : value=Not publicly listed
+   Got      : value found
+   Read by  : rules
+   Answer   : No company in my data matches that. The closest options are companies offering private charters for leisure or with catering. Ask them directly.
+
+[PASS] H069 (contact details)
+   Question : Air Charter Services website link?
+   Expected : value=https://www.aircharterservices.com
+   Got      : value found
+   Read by  : rules
+   Answer   : Air Charter Services Pvt. Ltd.: phone +91 98718 01826, email info@aircharterservices.com, website https://www.aircharterservices.com. Verification level: medium (checked 2026-10-17).
+
+[PASS] H070 (contact details)
+   Question : How can I call Poonawalla Aviation?
+   Expected : value=Not publicly listed
+   Got      : value found
+   Read by  : rules
+   Answer   : Poonawalla Aviation: phone Not publicly listed, email Not publicly listed, website https://poonawallaaviation.com/. Verification level: low (checked 2026-10-18).
+
+[PASS] H071 (contact details)
+   Question : How can I call Heritage Aviation?
+   Expected : value=+91 85888 30753
+   Got      : value found
+   Read by  : rules
+   Answer   : Heritage Aviation: phone +91 85888 30753, email info@heritageaviation.in, website https://www.heritageaviation.in. Verification level: low (checked 2026-10-17).
+
+[PASS] H072 (need in plain words)
+   Question : who can handle a medical emergency please
+   Expected : companies=IND-001,IND-005,IND-006,IND-012,IND-015,IND-016,IND-017,IND-019
+   Got      : companies=IND-001,IND-005,IND-006,IND-012,IND-015,IND-016,IND-017,IND-019
+   Read by  : rules
+   Answer   : 8 companies match: Air Charter Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd., Pawan Hans Helicopters Ltd., Aone Helicopters, Thumby Aviation, Heli Tours, EMSOS Aviation.
+
+[PASS] H073 (need in plain words)
+   Question : which companies have helicopters please
+   Expected : companies=IND-001,IND-003,IND-005,IND-006,IND-012,IND-013,IND-014,IND-015,IND-017,IND-018,IND-020
+   Got      : companies=IND-001,IND-003,IND-005,IND-006,IND-012,IND-013,IND-014,IND-015,IND-017,IND-018,IND-020
+   Read by  : rules
+   Answer   : 11 companies match: Aone Helicopters, Global Vectra Helicorp, Thumby Aviation, Chipsan Aviation Pvt. Ltd., Himalayan Heli Services Pvt. Ltd., India Fly Safe Aviation Ltd. (IFSAL), Aman Aviation & Aerospace Solutions, JetSetGo Aviation Services Pvt. Ltd., Air Charter Services Pvt. Ltd., Pawan Hans Helicopters Ltd., Deccan Charters Pvt. Ltd.
+
+[PASS] H074 (need in plain words)
+   Question : which operators work with government clients please
+   Expected : companies=IND-005,IND-006,IND-007,IND-013,IND-015,IND-017
+   Got      : companies=IND-005,IND-006,IND-007,IND-013,IND-015,IND-017
+   Read by  : rules
+   Answer   : 6 companies match: India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd., Pawan Hans Helicopters Ltd., Indamer Aviation Pvt. Ltd., Global Vectra Helicorp, Thumby Aviation.
+
+[PASS] H075 (need in plain words)
+   Question : who can fly crew to an offshore oil rig please
+   Expected : companies=IND-013,IND-017
+   Got      : companies=IND-013,IND-017
+   Read by  : rules
+   Answer   : 2 companies match: Pawan Hans Helicopters Ltd., Global Vectra Helicorp.
+
+[PASS] H076 (need in plain words)
+   Question : we want a helicopter for a pilgrimage to kedarnath. who can help please
+   Expected : companies=IND-012,IND-013,IND-015,IND-017,IND-020
+   Got      : companies=IND-012,IND-013,IND-015,IND-017,IND-020
+   Read by  : rules
+   Answer   : 5 companies match: Aone Helicopters, Global Vectra Helicorp, Thumby Aviation, Himalayan Heli Services Pvt. Ltd., Pawan Hans Helicopters Ltd.
+
+[PASS] H077 (need in plain words)
+   Question : i want a helicopter for a wedding entry please
+   Expected : companies=IND-012,IND-014,IND-015
+   Got      : companies=IND-012,IND-014,IND-015
+   Read by  : rules
+   Answer   : 3 companies match: Aone Helicopters, Thumby Aviation, Aman Aviation & Aerospace Solutions.
+
+[PASS] H078 (need in plain words)
+   Question : who offers helicopter joyrides please
+   Expected : companies=IND-012,IND-014,IND-015,IND-020
+   Got      : companies=IND-012,IND-014,IND-015,IND-020
+   Read by  : rules
+   Answer   : 4 companies match: Aone Helicopters, Thumby Aviation, Himalayan Heli Services Pvt. Ltd., Aman Aviation & Aerospace Solutions.
+
+[PASS] H079 (need in plain words)
+   Question : my aircraft needs maintenance. who can help please
+   Expected : companies=IND-003,IND-004,IND-006,IND-007,IND-013,IND-014,IND-018,IND-020
+   Got      : companies=IND-003,IND-004,IND-006,IND-007,IND-013,IND-014,IND-018,IND-020
+   Read by  : rules
+   Answer   : 8 companies match: JetSetGo Aviation Services Pvt. Ltd., IndoPacific Aviation Services Pvt. Ltd., Deccan Charters Pvt. Ltd., Indamer Aviation Pvt. Ltd., Global Vectra Helicorp, Aman Aviation & Aerospace Solutions, Chipsan Aviation Pvt. Ltd., Himalayan Heli Services Pvt. Ltd.
+
+[PASS] H080 (need in plain words)
+   Question : i want to buy an aircraft. who sells them please
+   Expected : companies=IND-004,IND-009,IND-018,IND-019
+   Got      : companies=IND-004,IND-009,IND-018,IND-019
+   Read by  : rules
+   Answer   : 4 companies match: IndoPacific Aviation Services Pvt. Ltd., AirLuxxis, Chipsan Aviation Pvt. Ltd., EMSOS Aviation.
+
+[PASS] H081 (need in plain words)
+   Question : we need an aerial survey for a pipeline project please
+   Expected : companies=IND-005,IND-013,IND-014,IND-015,IND-020
+   Got      : companies=IND-005,IND-013,IND-014,IND-015,IND-020
+   Read by  : rules
+   Answer   : 5 companies match: India Fly Safe Aviation Ltd. (IFSAL), Global Vectra Helicorp, Aman Aviation & Aerospace Solutions, Thumby Aviation, Himalayan Heli Services Pvt. Ltd.
+
+[PASS] H082 (need in plain words)
+   Question : i need ground handling for my jet please
+   Expected : companies=IND-001,IND-007
+   Got      : companies=IND-001,IND-007
+   Read by  : rules
+   Answer   : 2 companies match: Air Charter Services Pvt. Ltd., Indamer Aviation Pvt. Ltd.
+
+[PASS] H083 (need in plain words)
+   Question : our executives travel every week. who offers corporate travel please
+   Expected : companies=IND-002,IND-005,IND-006,IND-012,IND-017,IND-018
+   Got      : companies=IND-002,IND-005,IND-006,IND-012,IND-017,IND-018
+   Read by  : rules
+   Answer   : 6 companies match: Club One Air, India Fly Safe Aviation Ltd. (IFSAL), Deccan Charters Pvt. Ltd., Pawan Hans Helicopters Ltd., Aone Helicopters, Chipsan Aviation Pvt. Ltd.
+
+[PASS] H084 (need + city)
+   Question : Who does medical evacuation in Bangalore?
+   Expected : companies=IND-006,IND-015,IND-016
+   Got      : companies=IND-006,IND-015,IND-016
+   Read by  : rules
+   Answer   : 3 companies match: Deccan Charters Pvt. Ltd., Thumby Aviation, Heli Tours.
+
+[PASS] H085 (need + city)
+   Question : Any helicopter company in Jaipur?
+   Expected : companies=IND-012
+   Got      : companies=IND-012
+   Read by  : rules
+   Answer   : 1 company match: Aone Helicopters.
+
+[PASS] H086 (listing)
+   Question : Which companies are based in Kochi?
+   Expected : companies=IND-016
+   Got      : companies=IND-016
+   Read by  : rules
+   Answer   : 1 company match: Heli Tours.
+
+[PASS] H087 (listing)
+   Question : Which companies are based in Jaipur?
+   Expected : companies=IND-012
+   Got      : companies=IND-012
+   Read by  : rules
+   Answer   : 1 company match: Aone Helicopters.
+
+[PASS] H088 (trust / sources)
+   Question : Which companies have low verification?
+   Expected : companies=IND-007,IND-008,IND-009,IND-010,IND-011,IND-012,IND-013,IND-014,IND-015,IND-016,IND-018,IND-019,IND-020
+   Got      : companies=IND-007,IND-008,IND-009,IND-010,IND-011,IND-012,IND-013,IND-014,IND-015,IND-016,IND-018,IND-019,IND-020
+   Read by  : rules
+   Answer   : 13 companies match: Indamer Aviation Pvt. Ltd., Heritage Aviation, AirLuxxis, Span Air, Poonawalla Aviation, Aone Helicopters, Global Vectra Helicorp, Aman Aviation & Aerospace Solutions, Thumby Aviation, Heli Tours, Chipsan Aviation Pvt. Ltd., EMSOS Aviation, Himalayan Heli Services Pvt. Ltd.
+
+[PASS] H089 (mixed (company + flight))
+   Question : Show flights from Nagpur to Delhi run by a company that offers air ambulance.
+   Expected : flights=PV-133
+   Got      : flights=PV-133
+   Read by  : rules
+   Answer   : I found 1 flight: PV-133 Deccan Charters Pvt. Ltd., departs 20 Oct, 10:15, arrives 20 Oct, 11:55, Rs 6,10,000 per flight.
+
+[PASS] H090 (mixed (company + flight))
+   Question : Show flights from Lucknow to Mumbai run by a company that offers air ambulance.
+   Expected : flights=PV-123
+   Got      : flights=PV-123
+   Read by  : rules
+   Answer   : I found 1 flight: PV-123 Air Charter Services Pvt. Ltd., departs 29 Oct, 13:00, arrives 29 Oct, 15:05, Rs 8,50,000 per flight.
+
+[PASS] H091 (messy wording)
+   Question : going HYD to chandigarh on 31st oct, options?
+   Expected : flights=PV-124
+   Got      : flights=PV-124
+   Read by  : rules
+   Answer   : I found 1 flight: PV-124 Deccan Charters Pvt. Ltd., departs 31 Oct, 14:30, arrives 31 Oct, 17:00, Rs 8,50,000 per flight.
+
+[PASS] H092 (messy wording)
+   Question : going jaipur to DEL on 22nd oct, options?
+   Expected : flights=PV-153
+   Got      : flights=PV-153
+   Read by  : rules
+   Answer   : I found 1 flight: PV-153 Pawan Hans Helicopters Ltd., departs 22 Oct, 15:15, arrives 22 Oct, 16:35, Rs 3,20,000 per flight.
+
+[PASS] H093 (messy wording)
+   Question : bombay 2 new delhi on 21 oct?
+   Expected : flights=PV-101
+   Got      : flights=PV-101
+   Read by  : rules
+   Answer   : I found 1 flight: PV-101 JetSetGo Aviation Services Pvt. Ltd., departs 21 Oct, 07:00, arrives 21 Oct, 09:10, Rs 6,50,000 per flight.
+
+[PASS] H094 (messy wording)
+   Question : BLR 2 bombay on 21 oct?
+   Expected : flights=CM-203
+   Got      : flights=CM-203
+   Read by  : rules
+   Answer   : I found 1 flight: CM-203 Akasa Air, departs 21 Oct, 09:30, arrives 21 Oct, 11:10, Rs 4,800 per seat.
+
+[PASS] H095 (messy wording)
+   Question : HYD 2 madras on 26 oct?
+   Expected : flights=PV-134
+   Got      : flights=PV-134
+   Read by  : rules
+   Answer   : I found 1 flight: PV-134 Deccan Charters Pvt. Ltd., departs 26 Oct, 19:00, arrives 26 Oct, 20:10, Rs 4,40,000 per flight.
+
+[PASS] H096 (messy wording)
+   Question : goa 2 bangalore on 30 oct?
+   Expected : flights=CM-216
+   Got      : flights=CM-216
+   Read by  : rules
+   Answer   : I found 1 flight: CM-216 Air India, departs 30 Oct, 15:45, arrives 30 Oct, 16:50, Rs 4,800 per seat.
+
+[PASS] H097 (messy wording)
+   Question : going mumbai to DEL on 22nd oct, options?
+   Expected : flights=CM-201
+   Got      : flights=CM-201
+   Read by  : rules
+   Answer   : I found 1 flight: CM-201 Air India, departs 22 Oct, 06:00, arrives 22 Oct, 08:15, Rs 6,500 per seat.
+
+[PASS] H098 (messy wording)
+   Question : going DEL to mumbai on 21st oct, options?
+   Expected : flights=PV-102
+   Got      : flights=PV-102
+   Read by  : rules
+   Answer   : I found 1 flight: PV-102 Club One Air, departs 21 Oct, 18:00, arrives 21 Oct, 20:10, Rs 6,00,000 per flight.
+
+[PASS] H099 (should not answer)
+   Question : Reserve a seat on the next flight to Kochi.
+   Expected : none=booking is not supported
+   Got      : status=out_of_scope
+   Read by  : rules
+   Answer   : I cannot make bookings. I can show the flight and the operator's contact details so you can book directly.
+
+[PASS] H100 (should not answer)
+   Question : Flight from Mumbai to Dubai on 26 October?
+   Expected : none=Dubai is not covered
+   Got      : status=out_of_scope
+   Read by  : rules
+   Answer   : That city is not in my data, so I have nothing to offer for it without guessing.
+
+[PASS] H101 (should not answer)
+   Question : Who won the cricket match yesterday?
+   Expected : none=out of scope
+   Got      : status=out_of_scope
+   Read by  : rules
+   Answer   : That is outside what I cover. I answer questions about flights between Indian cities in my data, and about private aviation companies.
+

@@ -1,0 +1,927 @@
+AVATITION TEST REPORT
+==============================================================================
+Run at      : 2026-10-18 15:06:15
+Python      : 3.13.16 on Linux
+Database    : a temporary local PostgreSQL 16, started for this run and deleted afterwards
+DB driver   : the 'psql' command (the psycopg2 driver cannot be installed in this workspace)
+Browser     : Chromium driven by Playwright (screenshots are saved in test_results/screenshots)
+
+Temporary database: started OK
+
+------------------------------------------------------------------------------
+STAGE 0: Project files and questions file
+   passed 7   failed 0   skipped 0   (0.0s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+
+------------------------------------------------------------------------------
+STAGE 1: config.py (+ everything before)
+   passed 23   failed 0   skipped 0   (0.0s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+
+------------------------------------------------------------------------------
+STAGE 2: db.py (+ config.py and everything before)
+   passed 36   failed 0   skipped 0   (1.1s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+  [PASS] %% stays a percent sign and None becomes NULL.
+         (test_s2_db.BindTest.test_percent_sign_and_none)
+  [PASS] A value with a quote in it cannot break out of the SQL.
+         (test_s2_db.BindTest.test_quotes_are_escaped)
+  [PASS] An unknown backend name is rejected.
+         (test_s2_db.BindTest.test_unknown_backend)
+  [PASS] Too many or too few values is an error, not a silent mistake.
+         (test_s2_db.BindTest.test_value_count_mismatch)
+  [PASS] Bad SQL raises our own DatabaseError with a short message.
+         (test_s2_db.LiveTest.test_bad_sql_raises_clean_error)
+  [PASS] A wrong address gives a clean error and the password is not in the message.
+         (test_s2_db.LiveTest.test_cannot_connect_message_has_no_password)
+  [PASS] The database answers a simple question.
+         (test_s2_db.LiveTest.test_connects_and_answers)
+  [PASS] A query with no matching rows returns an empty list.
+         (test_s2_db.LiveTest.test_empty_result)
+  [PASS] Hostile text passed as a value is stored as plain text and the table survives.
+         (test_s2_db.LiveTest.test_injection_text_is_just_text)
+  [PASS] Text with quotes, a list, a timestamp and a date are stored and read back unchanged.
+         (test_s2_db.LiveTest.test_insert_and_read_back_values)
+  [PASS] query() refuses anything that is not a SELECT.
+         (test_s2_db.LiveTest.test_query_refuses_changes)
+  [PASS] If the last statement of a script fails, the earlier ones are undone too.
+         (test_s2_db.LiveTest.test_script_is_all_or_nothing)
+  [PASS] The address travels from the environment through config into db and the database answers.
+         (test_s2_chain.ChainStage2.test_settings_to_database_answer)
+
+------------------------------------------------------------------------------
+STAGE 3: load_data.py (+ db.py, config.py and everything before)
+   passed 52   failed 0   skipped 0   (9.0s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+  [PASS] %% stays a percent sign and None becomes NULL.
+         (test_s2_db.BindTest.test_percent_sign_and_none)
+  [PASS] A value with a quote in it cannot break out of the SQL.
+         (test_s2_db.BindTest.test_quotes_are_escaped)
+  [PASS] An unknown backend name is rejected.
+         (test_s2_db.BindTest.test_unknown_backend)
+  [PASS] Too many or too few values is an error, not a silent mistake.
+         (test_s2_db.BindTest.test_value_count_mismatch)
+  [PASS] Bad SQL raises our own DatabaseError with a short message.
+         (test_s2_db.LiveTest.test_bad_sql_raises_clean_error)
+  [PASS] A wrong address gives a clean error and the password is not in the message.
+         (test_s2_db.LiveTest.test_cannot_connect_message_has_no_password)
+  [PASS] The database answers a simple question.
+         (test_s2_db.LiveTest.test_connects_and_answers)
+  [PASS] A query with no matching rows returns an empty list.
+         (test_s2_db.LiveTest.test_empty_result)
+  [PASS] Hostile text passed as a value is stored as plain text and the table survives.
+         (test_s2_db.LiveTest.test_injection_text_is_just_text)
+  [PASS] Text with quotes, a list, a timestamp and a date are stored and read back unchanged.
+         (test_s2_db.LiveTest.test_insert_and_read_back_values)
+  [PASS] query() refuses anything that is not a SELECT.
+         (test_s2_db.LiveTest.test_query_refuses_changes)
+  [PASS] If the last statement of a script fails, the earlier ones are undone too.
+         (test_s2_db.LiveTest.test_script_is_all_or_nothing)
+  [PASS] The address travels from the environment through config into db and the database answers.
+         (test_s2_chain.ChainStage2.test_settings_to_database_answer)
+  [PASS] 'python -m app.check_connection' with no DATABASE_URL stops with a clear message.
+         (test_s3_load_data.CommandLineTest.test_check_connection_without_url_explains_itself)
+  [PASS] 'python -m app.load_data' with no DATABASE_URL (and no .env) stops with a clear message, not a crash.
+         (test_s3_load_data.CommandLineTest.test_load_without_url_explains_itself)
+  [PASS] Every flight points to real airports, and every airport and company points to a real city.
+         (test_s3_load_data.LoadTest.test_every_flight_links_resolve)
+  [PASS] A first load creates the four tables with 3 cities, 3 airports, 10 companies, 10 flights.
+         (test_s3_load_data.LoadTest.test_first_load_gives_expected_counts)
+  [PASS] There are 6 private and 4 commercial flights, ordered private x3, commercial x2, private x3, commercial x2.
+         (test_s3_load_data.LoadTest.test_flight_mix)
+  [PASS] No company has an empty phone, email or website (each is a real value or 'Not publicly listed').
+         (test_s3_load_data.LoadTest.test_no_blank_contact_fields)
+  [PASS] A new row added without an id gets the next free id (no clash with the loaded rows).
+         (test_s3_load_data.LoadTest.test_numbering_continues_after_data)
+  [PASS] --reset never touches tables that are not ours.
+         (test_s3_load_data.LoadTest.test_reset_leaves_other_tables_alone)
+  [PASS] --reset deletes our tables and loads the original data again.
+         (test_s3_load_data.LoadTest.test_reset_restores_original_data)
+  [PASS] The database itself rejects bad flights: same airport both ends, arrival before departure, private flight without a company, negative seats.
+         (test_s3_load_data.LoadTest.test_rules_in_schema_reject_bad_flights)
+  [PASS] Loading again without --reset is refused, and the data is untouched.
+         (test_s3_load_data.LoadTest.test_second_load_is_refused_and_changes_nothing)
+  [PASS] The loader can list which of our tables exist (none before loading, four after).
+         (test_s3_load_data.LoadTest.test_tables_present_listing)
+  [PASS] All 48 questions have a plain-SQL reference answer.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_every_question_has_a_reference_answer)
+  [PASS] For all 48 questions, the answer written in the questions file equals what plain SQL finds in the data.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_expected_answers_match_the_database)
+  [PASS] All four example queries in database/03 run without error on the loaded data.
+         (test_s3_chain.ChainStage3.test_all_four_example_queries_run)
+  [PASS] From the environment to a loaded database to the answer for 'Mumbai to Delhi by the morning of 22 Oct'.
+         (test_s3_chain.ChainStage3.test_whole_chain)
+
+------------------------------------------------------------------------------
+STAGE 4: screen.py and the chat window (+ everything before)
+   passed 93   failed 0   skipped 0   (31.0s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+  [PASS] %% stays a percent sign and None becomes NULL.
+         (test_s2_db.BindTest.test_percent_sign_and_none)
+  [PASS] A value with a quote in it cannot break out of the SQL.
+         (test_s2_db.BindTest.test_quotes_are_escaped)
+  [PASS] An unknown backend name is rejected.
+         (test_s2_db.BindTest.test_unknown_backend)
+  [PASS] Too many or too few values is an error, not a silent mistake.
+         (test_s2_db.BindTest.test_value_count_mismatch)
+  [PASS] Bad SQL raises our own DatabaseError with a short message.
+         (test_s2_db.LiveTest.test_bad_sql_raises_clean_error)
+  [PASS] A wrong address gives a clean error and the password is not in the message.
+         (test_s2_db.LiveTest.test_cannot_connect_message_has_no_password)
+  [PASS] The database answers a simple question.
+         (test_s2_db.LiveTest.test_connects_and_answers)
+  [PASS] A query with no matching rows returns an empty list.
+         (test_s2_db.LiveTest.test_empty_result)
+  [PASS] Hostile text passed as a value is stored as plain text and the table survives.
+         (test_s2_db.LiveTest.test_injection_text_is_just_text)
+  [PASS] Text with quotes, a list, a timestamp and a date are stored and read back unchanged.
+         (test_s2_db.LiveTest.test_insert_and_read_back_values)
+  [PASS] query() refuses anything that is not a SELECT.
+         (test_s2_db.LiveTest.test_query_refuses_changes)
+  [PASS] If the last statement of a script fails, the earlier ones are undone too.
+         (test_s2_db.LiveTest.test_script_is_all_or_nothing)
+  [PASS] The address travels from the environment through config into db and the database answers.
+         (test_s2_chain.ChainStage2.test_settings_to_database_answer)
+  [PASS] 'python -m app.check_connection' with no DATABASE_URL stops with a clear message.
+         (test_s3_load_data.CommandLineTest.test_check_connection_without_url_explains_itself)
+  [PASS] 'python -m app.load_data' with no DATABASE_URL (and no .env) stops with a clear message, not a crash.
+         (test_s3_load_data.CommandLineTest.test_load_without_url_explains_itself)
+  [PASS] Every flight points to real airports, and every airport and company points to a real city.
+         (test_s3_load_data.LoadTest.test_every_flight_links_resolve)
+  [PASS] A first load creates the four tables with 3 cities, 3 airports, 10 companies, 10 flights.
+         (test_s3_load_data.LoadTest.test_first_load_gives_expected_counts)
+  [PASS] There are 6 private and 4 commercial flights, ordered private x3, commercial x2, private x3, commercial x2.
+         (test_s3_load_data.LoadTest.test_flight_mix)
+  [PASS] No company has an empty phone, email or website (each is a real value or 'Not publicly listed').
+         (test_s3_load_data.LoadTest.test_no_blank_contact_fields)
+  [PASS] A new row added without an id gets the next free id (no clash with the loaded rows).
+         (test_s3_load_data.LoadTest.test_numbering_continues_after_data)
+  [PASS] --reset never touches tables that are not ours.
+         (test_s3_load_data.LoadTest.test_reset_leaves_other_tables_alone)
+  [PASS] --reset deletes our tables and loads the original data again.
+         (test_s3_load_data.LoadTest.test_reset_restores_original_data)
+  [PASS] The database itself rejects bad flights: same airport both ends, arrival before departure, private flight without a company, negative seats.
+         (test_s3_load_data.LoadTest.test_rules_in_schema_reject_bad_flights)
+  [PASS] Loading again without --reset is refused, and the data is untouched.
+         (test_s3_load_data.LoadTest.test_second_load_is_refused_and_changes_nothing)
+  [PASS] The loader can list which of our tables exist (none before loading, four after).
+         (test_s3_load_data.LoadTest.test_tables_present_listing)
+  [PASS] All 48 questions have a plain-SQL reference answer.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_every_question_has_a_reference_answer)
+  [PASS] For all 48 questions, the answer written in the questions file equals what plain SQL finds in the data.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_expected_answers_match_the_database)
+  [PASS] All four example queries in database/03 run without error on the loaded data.
+         (test_s3_chain.ChainStage3.test_all_four_example_queries_run)
+  [PASS] From the environment to a loaded database to the answer for 'Mumbai to Delhi by the morning of 22 Oct'.
+         (test_s3_chain.ChainStage3.test_whole_chain)
+  [PASS] A pipeline that returns something that is not a dict is treated as a failure.
+         (test_s4_screen.CleanReplyTest.test_non_dict_is_rejected)
+  [PASS] Unknown status, kind and tone are replaced by safe ones; extra fields are dropped; long text is cut.
+         (test_s4_screen.CleanReplyTest.test_shapes_are_forced)
+  [PASS] With the real pipeline (no stand-ins), the server answers Mumbai to Delhi with the two real flights.
+         (test_s4_screen.RealPipelineTest.test_default_server_answers_from_the_database)
+  [PASS] A good question returns the expected shape: status, answer, cards.
+         (test_s4_screen.ServerTest.test_a_question_gets_an_answer)
+  [PASS] If answering crashes, the user gets a calm message and none of the internal text.
+         (test_s4_screen.ServerTest.test_an_internal_failure_does_not_leak_details)
+  [PASS] Not JSON, empty, not text, too long, and too big are each refused with the right code.
+         (test_s4_screen.ServerTest.test_bad_requests_get_clear_errors)
+  [PASS] /api/health says the server is up and which mode it is in.
+         (test_s4_screen.ServerTest.test_health)
+  [PASS] The home page, script and both style sheets are served with the right types.
+         (test_s4_screen.ServerTest.test_home_page_and_files)
+  [PASS] The server is bound to 127.0.0.1, so other devices cannot reach it.
+         (test_s4_screen.ServerTest.test_listens_on_this_computer_only)
+  [PASS] Project files, the .env file, and path tricks all give 'not found'.
+         (test_s4_screen.ServerTest.test_no_other_file_can_be_read)
+  [PASS] Pages carry headers that stop inline scripts, framing and content-type guessing.
+         (test_s4_screen.ServerTest.test_security_headers)
+  [PASS] Unknown paths and a GET on the chat address give 404.
+         (test_s4_screen.ServerTest.test_unknown_paths)
+  [PASS] A javascript: link in a source never leaves the server; the https link stays.
+         (test_s4_screen.ServerTest.test_unsafe_link_is_dropped_by_the_server)
+  [PASS] Form posts are refused (415), PUT/DELETE are refused (405), and a missing length is refused (411).
+         (test_s4_screen.ServerTest.test_wrong_content_type_and_methods)
+  [PASS] After a long answer arrives, the start of the answer is in view, and long values like emails use the full card width.
+         (test_s4_ui.UiTest.test_answer_scrolls_to_its_first_line_and_long_values_get_full_width)
+  [PASS] Clicking the icon opens a window on the right with a greeting, 4 suggestions, and the cursor in the typing box.
+         (test_s4_ui.UiTest.test_click_opens_window_with_greeting_and_suggestions)
+  [PASS] Closing with the arrow and opening again keeps the conversation on screen.
+         (test_s4_ui.UiTest.test_close_button_and_reopen_keep_the_conversation)
+  [PASS] With a dark system setting the window turns dark and the text stays readable.
+         (test_s4_ui.UiTest.test_dark_mode)
+  [PASS] Enter sends the question. Shift+Enter starts a new line instead of sending.
+         (test_s4_ui.UiTest.test_enter_sends_and_shift_enter_adds_a_line)
+  [PASS] Escape closes the window and puts the keyboard focus back on the corner icon.
+         (test_s4_ui.UiTest.test_escape_closes_and_focus_returns_to_icon)
+  [PASS] After a reload, the earlier questions and answers (including cards) are still there.
+         (test_s4_ui.UiTest.test_history_survives_a_reload)
+  [PASS] The page's own styles (grey paragraphs, big text) do not change the window: white header text, white plane icon, blue suggestions, full-width notes.
+         (test_s4_ui.UiTest.test_host_page_styles_do_not_leak_into_the_window)
+  [PASS] A question or answer containing HTML or script is displayed as plain text. Nothing runs.
+         (test_s4_ui.UiTest.test_html_in_text_is_shown_as_text_and_never_runs)
+  [PASS] A round icon sits in the corner and the chat window is closed until it is clicked.
+         (test_s4_ui.UiTest.test_icon_shows_and_window_starts_closed)
+  [PASS] 'Start a new chat' clears the conversation, even after a reload, and brings the suggestions back.
+         (test_s4_ui.UiTest.test_new_chat_clears_everything)
+  [PASS] A full session (open, ask twice, new chat, close) leaves no errors in the browser console.
+         (test_s4_ui.UiTest.test_no_errors_in_the_browser_console)
+  [PASS] When nothing matches, the window says so and shows no cards.
+         (test_s4_ui.UiTest.test_no_match_answer_is_shown_plainly)
+  [PASS] The page makes no requests to any other website (no fonts, trackers or CDNs).
+         (test_s4_ui.UiTest.test_page_only_talks_to_its_own_server)
+  [PASS] On a phone-sized screen the window fits inside the screen and the page does not scroll sideways.
+         (test_s4_ui.UiTest.test_phone_size_has_no_sideways_scroll)
+  [PASS] The typing box stops at 500 characters and shows a counter near the limit.
+         (test_s4_ui.UiTest.test_question_length_limit)
+  [PASS] If the server refuses the question itself (for example too long), the reason is shown and there is no pointless retry button.
+         (test_s4_ui.UiTest.test_refused_question_has_no_retry)
+  [PASS] The send button is off for an empty or spaces-only box and on when there is text. Clicking it sends.
+         (test_s4_ui.UiTest.test_send_button_only_works_with_text)
+  [PASS] If the server cannot be reached, a clear message and 'Try again' appear. Trying again works once it is back, without repeating the question.
+         (test_s4_ui.UiTest.test_server_down_shows_message_and_retry_works)
+  [PASS] A crash inside the answer step shows the calm message from the server (and a retry button), not internal text.
+         (test_s4_ui.UiTest.test_server_error_is_shown_without_internal_details)
+  [PASS] Clicking a suggestion sends it and shows the answer, two flight cards with facts, a note and a source link.
+         (test_s4_ui.UiTest.test_suggestion_click_gets_cards)
+  [PASS] While the answer is on its way, three dots show; they go away when the answer arrives.
+         (test_s4_ui.UiTest.test_typing_dots_show_while_waiting)
+  [PASS] Source links open in a new tab with noopener. A javascript: link is never shown, even if the server sent one.
+         (test_s4_ui.UiTest.test_unsafe_links_are_not_clickable_and_good_links_open_safely)
+  [PASS] If the browser blocks saved history, the chat still works for the current visit.
+         (test_s4_ui.UiTest.test_works_when_browser_storage_is_blocked)
+  [PASS] In a real browser: type a company name, and the window shows the card built from the database row.
+         (test_s4_chain.ChainStage4.test_database_row_appears_in_the_chat_window)
+  [PASS] A company typed into the server comes back with the phone and email stored in the database.
+         (test_s4_chain.ChainStage4.test_database_row_reaches_the_server_answer)
+  [PASS] In a real browser with the real pipeline: the medical question shows the three air-ambulance companies from the data.
+         (test_s4_chain.ChainStage4.test_real_pipeline_answers_in_the_window)
+
+------------------------------------------------------------------------------
+STAGE 5: real answers: local_db, search, gemini, understand, explain, pipeline, live_check (+ everything before)
+   passed 105   failed 0   skipped 0   (31.3s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+  [PASS] %% stays a percent sign and None becomes NULL.
+         (test_s2_db.BindTest.test_percent_sign_and_none)
+  [PASS] A value with a quote in it cannot break out of the SQL.
+         (test_s2_db.BindTest.test_quotes_are_escaped)
+  [PASS] An unknown backend name is rejected.
+         (test_s2_db.BindTest.test_unknown_backend)
+  [PASS] Too many or too few values is an error, not a silent mistake.
+         (test_s2_db.BindTest.test_value_count_mismatch)
+  [PASS] Bad SQL raises our own DatabaseError with a short message.
+         (test_s2_db.LiveTest.test_bad_sql_raises_clean_error)
+  [PASS] A wrong address gives a clean error and the password is not in the message.
+         (test_s2_db.LiveTest.test_cannot_connect_message_has_no_password)
+  [PASS] The database answers a simple question.
+         (test_s2_db.LiveTest.test_connects_and_answers)
+  [PASS] A query with no matching rows returns an empty list.
+         (test_s2_db.LiveTest.test_empty_result)
+  [PASS] Hostile text passed as a value is stored as plain text and the table survives.
+         (test_s2_db.LiveTest.test_injection_text_is_just_text)
+  [PASS] Text with quotes, a list, a timestamp and a date are stored and read back unchanged.
+         (test_s2_db.LiveTest.test_insert_and_read_back_values)
+  [PASS] query() refuses anything that is not a SELECT.
+         (test_s2_db.LiveTest.test_query_refuses_changes)
+  [PASS] If the last statement of a script fails, the earlier ones are undone too.
+         (test_s2_db.LiveTest.test_script_is_all_or_nothing)
+  [PASS] The address travels from the environment through config into db and the database answers.
+         (test_s2_chain.ChainStage2.test_settings_to_database_answer)
+  [PASS] 'python -m app.check_connection' with no DATABASE_URL stops with a clear message.
+         (test_s3_load_data.CommandLineTest.test_check_connection_without_url_explains_itself)
+  [PASS] 'python -m app.load_data' with no DATABASE_URL (and no .env) stops with a clear message, not a crash.
+         (test_s3_load_data.CommandLineTest.test_load_without_url_explains_itself)
+  [PASS] Every flight points to real airports, and every airport and company points to a real city.
+         (test_s3_load_data.LoadTest.test_every_flight_links_resolve)
+  [PASS] A first load creates the four tables with 3 cities, 3 airports, 10 companies, 10 flights.
+         (test_s3_load_data.LoadTest.test_first_load_gives_expected_counts)
+  [PASS] There are 6 private and 4 commercial flights, ordered private x3, commercial x2, private x3, commercial x2.
+         (test_s3_load_data.LoadTest.test_flight_mix)
+  [PASS] No company has an empty phone, email or website (each is a real value or 'Not publicly listed').
+         (test_s3_load_data.LoadTest.test_no_blank_contact_fields)
+  [PASS] A new row added without an id gets the next free id (no clash with the loaded rows).
+         (test_s3_load_data.LoadTest.test_numbering_continues_after_data)
+  [PASS] --reset never touches tables that are not ours.
+         (test_s3_load_data.LoadTest.test_reset_leaves_other_tables_alone)
+  [PASS] --reset deletes our tables and loads the original data again.
+         (test_s3_load_data.LoadTest.test_reset_restores_original_data)
+  [PASS] The database itself rejects bad flights: same airport both ends, arrival before departure, private flight without a company, negative seats.
+         (test_s3_load_data.LoadTest.test_rules_in_schema_reject_bad_flights)
+  [PASS] Loading again without --reset is refused, and the data is untouched.
+         (test_s3_load_data.LoadTest.test_second_load_is_refused_and_changes_nothing)
+  [PASS] The loader can list which of our tables exist (none before loading, four after).
+         (test_s3_load_data.LoadTest.test_tables_present_listing)
+  [PASS] All 48 questions have a plain-SQL reference answer.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_every_question_has_a_reference_answer)
+  [PASS] For all 48 questions, the answer written in the questions file equals what plain SQL finds in the data.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_expected_answers_match_the_database)
+  [PASS] All four example queries in database/03 run without error on the loaded data.
+         (test_s3_chain.ChainStage3.test_all_four_example_queries_run)
+  [PASS] From the environment to a loaded database to the answer for 'Mumbai to Delhi by the morning of 22 Oct'.
+         (test_s3_chain.ChainStage3.test_whole_chain)
+  [PASS] A pipeline that returns something that is not a dict is treated as a failure.
+         (test_s4_screen.CleanReplyTest.test_non_dict_is_rejected)
+  [PASS] Unknown status, kind and tone are replaced by safe ones; extra fields are dropped; long text is cut.
+         (test_s4_screen.CleanReplyTest.test_shapes_are_forced)
+  [PASS] With the real pipeline (no stand-ins), the server answers Mumbai to Delhi with the two real flights.
+         (test_s4_screen.RealPipelineTest.test_default_server_answers_from_the_database)
+  [PASS] A good question returns the expected shape: status, answer, cards.
+         (test_s4_screen.ServerTest.test_a_question_gets_an_answer)
+  [PASS] If answering crashes, the user gets a calm message and none of the internal text.
+         (test_s4_screen.ServerTest.test_an_internal_failure_does_not_leak_details)
+  [PASS] Not JSON, empty, not text, too long, and too big are each refused with the right code.
+         (test_s4_screen.ServerTest.test_bad_requests_get_clear_errors)
+  [PASS] /api/health says the server is up and which mode it is in.
+         (test_s4_screen.ServerTest.test_health)
+  [PASS] The home page, script and both style sheets are served with the right types.
+         (test_s4_screen.ServerTest.test_home_page_and_files)
+  [PASS] The server is bound to 127.0.0.1, so other devices cannot reach it.
+         (test_s4_screen.ServerTest.test_listens_on_this_computer_only)
+  [PASS] Project files, the .env file, and path tricks all give 'not found'.
+         (test_s4_screen.ServerTest.test_no_other_file_can_be_read)
+  [PASS] Pages carry headers that stop inline scripts, framing and content-type guessing.
+         (test_s4_screen.ServerTest.test_security_headers)
+  [PASS] Unknown paths and a GET on the chat address give 404.
+         (test_s4_screen.ServerTest.test_unknown_paths)
+  [PASS] A javascript: link in a source never leaves the server; the https link stays.
+         (test_s4_screen.ServerTest.test_unsafe_link_is_dropped_by_the_server)
+  [PASS] Form posts are refused (415), PUT/DELETE are refused (405), and a missing length is refused (411).
+         (test_s4_screen.ServerTest.test_wrong_content_type_and_methods)
+  [PASS] After a long answer arrives, the start of the answer is in view, and long values like emails use the full card width.
+         (test_s4_ui.UiTest.test_answer_scrolls_to_its_first_line_and_long_values_get_full_width)
+  [PASS] Clicking the icon opens a window on the right with a greeting, 4 suggestions, and the cursor in the typing box.
+         (test_s4_ui.UiTest.test_click_opens_window_with_greeting_and_suggestions)
+  [PASS] Closing with the arrow and opening again keeps the conversation on screen.
+         (test_s4_ui.UiTest.test_close_button_and_reopen_keep_the_conversation)
+  [PASS] With a dark system setting the window turns dark and the text stays readable.
+         (test_s4_ui.UiTest.test_dark_mode)
+  [PASS] Enter sends the question. Shift+Enter starts a new line instead of sending.
+         (test_s4_ui.UiTest.test_enter_sends_and_shift_enter_adds_a_line)
+  [PASS] Escape closes the window and puts the keyboard focus back on the corner icon.
+         (test_s4_ui.UiTest.test_escape_closes_and_focus_returns_to_icon)
+  [PASS] After a reload, the earlier questions and answers (including cards) are still there.
+         (test_s4_ui.UiTest.test_history_survives_a_reload)
+  [PASS] The page's own styles (grey paragraphs, big text) do not change the window: white header text, white plane icon, blue suggestions, full-width notes.
+         (test_s4_ui.UiTest.test_host_page_styles_do_not_leak_into_the_window)
+  [PASS] A question or answer containing HTML or script is displayed as plain text. Nothing runs.
+         (test_s4_ui.UiTest.test_html_in_text_is_shown_as_text_and_never_runs)
+  [PASS] A round icon sits in the corner and the chat window is closed until it is clicked.
+         (test_s4_ui.UiTest.test_icon_shows_and_window_starts_closed)
+  [PASS] 'Start a new chat' clears the conversation, even after a reload, and brings the suggestions back.
+         (test_s4_ui.UiTest.test_new_chat_clears_everything)
+  [PASS] A full session (open, ask twice, new chat, close) leaves no errors in the browser console.
+         (test_s4_ui.UiTest.test_no_errors_in_the_browser_console)
+  [PASS] When nothing matches, the window says so and shows no cards.
+         (test_s4_ui.UiTest.test_no_match_answer_is_shown_plainly)
+  [PASS] The page makes no requests to any other website (no fonts, trackers or CDNs).
+         (test_s4_ui.UiTest.test_page_only_talks_to_its_own_server)
+  [PASS] On a phone-sized screen the window fits inside the screen and the page does not scroll sideways.
+         (test_s4_ui.UiTest.test_phone_size_has_no_sideways_scroll)
+  [PASS] The typing box stops at 500 characters and shows a counter near the limit.
+         (test_s4_ui.UiTest.test_question_length_limit)
+  [PASS] If the server refuses the question itself (for example too long), the reason is shown and there is no pointless retry button.
+         (test_s4_ui.UiTest.test_refused_question_has_no_retry)
+  [PASS] The send button is off for an empty or spaces-only box and on when there is text. Clicking it sends.
+         (test_s4_ui.UiTest.test_send_button_only_works_with_text)
+  [PASS] If the server cannot be reached, a clear message and 'Try again' appear. Trying again works once it is back, without repeating the question.
+         (test_s4_ui.UiTest.test_server_down_shows_message_and_retry_works)
+  [PASS] A crash inside the answer step shows the calm message from the server (and a retry button), not internal text.
+         (test_s4_ui.UiTest.test_server_error_is_shown_without_internal_details)
+  [PASS] Clicking a suggestion sends it and shows the answer, two flight cards with facts, a note and a source link.
+         (test_s4_ui.UiTest.test_suggestion_click_gets_cards)
+  [PASS] While the answer is on its way, three dots show; they go away when the answer arrives.
+         (test_s4_ui.UiTest.test_typing_dots_show_while_waiting)
+  [PASS] Source links open in a new tab with noopener. A javascript: link is never shown, even if the server sent one.
+         (test_s4_ui.UiTest.test_unsafe_links_are_not_clickable_and_good_links_open_safely)
+  [PASS] If the browser blocks saved history, the chat still works for the current visit.
+         (test_s4_ui.UiTest.test_works_when_browser_storage_is_blocked)
+  [PASS] In a real browser: type a company name, and the window shows the card built from the database row.
+         (test_s4_chain.ChainStage4.test_database_row_appears_in_the_chat_window)
+  [PASS] A company typed into the server comes back with the phone and email stored in the database.
+         (test_s4_chain.ChainStage4.test_database_row_reaches_the_server_answer)
+  [PASS] In a real browser with the real pipeline: the medical question shows the three air-ambulance companies from the data.
+         (test_s4_chain.ChainStage4.test_real_pipeline_answers_in_the_window)
+  [PASS] When Gemini read the question, Gemini also writes the final sentence; cards still come from the data.
+         (test_s5_answers.ExplainTest.test_gemini_wording_is_used_when_available)
+  [PASS] Prices use Indian grouping (6,50,000).
+         (test_s5_answers.ExplainTest.test_indian_number_format)
+  [PASS] Bad key, rate limit and server errors give plain messages without the key.
+         (test_s5_answers.GeminiClientTest.test_errors_are_clear_and_never_show_the_key)
+  [PASS] The request carries the key in a header (not the URL), our functions, and forces one call; the reply is read correctly.
+         (test_s5_answers.GeminiClientTest.test_function_call_request_and_reply)
+  [PASS] If the first model name is not available (404), the next default model is tried.
+         (test_s5_answers.GeminiClientTest.test_missing_model_tries_the_next)
+  [PASS] Text replies are joined from the parts.
+         (test_s5_answers.GeminiClientTest.test_write_text)
+  [PASS] All 48 test questions get the expected answer from the real pipeline (rules mode, real database file).
+         (test_s5_answers.LiveCheckTest.test_all_48_questions_pass_with_rules)
+  [PASS] The local database has the same counts and contacts as the Neon data file.
+         (test_s5_answers.LocalDbTest.test_builds_same_data)
+  [PASS] Text like '; DROP TABLE' in a search value finds nothing and the tables are untouched.
+         (test_s5_answers.SearchSafetyTest.test_hostile_text_is_only_a_value)
+  [PASS] If Gemini is unreachable or rate-limited, the answer still comes, via rules, and says why.
+         (test_s5_answers.UnderstandTest.test_gemini_down_falls_back_to_rules_with_reason)
+  [PASS] Gemini's choice is used, but unknown cities, bad dates, junk keys and bad enums are dropped.
+         (test_s5_answers.UnderstandTest.test_gemini_plan_is_used_and_checked)
+  [PASS] If Gemini names a search we do not have, the rules are used instead.
+         (test_s5_answers.UnderstandTest.test_unknown_function_falls_back_to_rules)
+
+------------------------------------------------------------------------------
+STAGE 6: data version v3: 20 cities, 20 companies, 100 flights, 209 questions (+ everything before)
+   passed 112   failed 0   skipped 0   (32.2s)
+------------------------------------------------------------------------------
+  [PASS] Every company row has contact details filled in (a real value or 'Not publicly listed').
+         (test_s0_files.FilesTest.test_company_fields_not_blank)
+  [PASS] Every question has a machine-readable check.
+         (test_s0_files.FilesTest.test_every_question_has_a_check)
+  [PASS] The SQL files do not call the data 'sample' (it is a project, not a demo of fake data).
+         (test_s0_files.FilesTest.test_no_sample_wording_in_sql)
+  [PASS] The questions cover at least 15 different kinds, with both 'no' and 'yes' for meaning-matching.
+         (test_s0_files.FilesTest.test_questions_cover_many_kinds)
+  [PASS] The questions file has 48 questions, each with 6 columns and a unique ID.
+         (test_s0_files.FilesTest.test_questions_file_shape)
+  [PASS] The schema creates exactly the four tables: cities, airports, companies, flights.
+         (test_s0_files.FilesTest.test_schema_has_four_tables)
+  [PASS] The three SQL files exist.
+         (test_s0_files.FilesTest.test_sql_files_exist)
+  [PASS] 'DATABASE_URL=' with nothing after it counts as not set.
+         (test_s1_config.ConfigTest.test_blank_value_counts_as_unset)
+  [PASS] The one-line description shows only host and database name.
+         (test_s1_config.ConfigTest.test_describe_hides_user_and_password)
+  [PASS] A normal Neon address is accepted.
+         (test_s1_config.ConfigTest.test_good_url_accepted)
+  [PASS] A missing .env file gives empty settings instead of crashing.
+         (test_s1_config.ConfigTest.test_missing_env_file_is_fine)
+  [PASS] A missing DATABASE_URL gives a clear instruction, not a crash.
+         (test_s1_config.ConfigTest.test_missing_url_message)
+  [PASS] Values are read from a .env file; comments, blanks and quotes are handled.
+         (test_s1_config.ConfigTest.test_reads_env_file)
+  [PASS] A real environment variable wins over the .env file.
+         (test_s1_config.ConfigTest.test_real_environment_beats_file)
+  [PASS] Redaction removes the URL, the password on its own, and the API key from any text.
+         (test_s1_config.ConfigTest.test_redact_removes_secrets)
+  [PASS] Printing the settings never shows the password or the API key.
+         (test_s1_config.ConfigTest.test_secrets_not_in_repr)
+  [PASS] A DATABASE_URL that is not a postgresql:// address is rejected.
+         (test_s1_config.ConfigTest.test_wrong_url_start)
+  [PASS] Placeholder text, missing password, spaces inside, wrong start, and empty input are all refused.
+         (test_s1_set_url.SetUrlTest.test_bad_addresses_rejected_with_reasons)
+  [PASS] A 'psql' in front, quotes, 'DATABASE_URL=' and spaces around the address are removed.
+         (test_s1_set_url.SetUrlTest.test_copy_mistakes_are_cleaned)
+  [PASS] A real-looking Neon address passes the check.
+         (test_s1_set_url.SetUrlTest.test_good_address_accepted)
+  [PASS] If there is no .env yet, it is created with the address.
+         (test_s1_set_url.SetUrlTest.test_save_creates_env_when_missing)
+  [PASS] Saving replaces the old DATABASE_URL line and keeps the Gemini lines; the app then reads the new address.
+         (test_s1_set_url.SetUrlTest.test_save_replaces_only_the_database_line)
+  [PASS] From a .env file to a validated address and a safe description, with no secret leaking at any point.
+         (test_s1_chain.ChainStage1.test_env_file_to_safe_description)
+  [PASS] %% stays a percent sign and None becomes NULL.
+         (test_s2_db.BindTest.test_percent_sign_and_none)
+  [PASS] A value with a quote in it cannot break out of the SQL.
+         (test_s2_db.BindTest.test_quotes_are_escaped)
+  [PASS] An unknown backend name is rejected.
+         (test_s2_db.BindTest.test_unknown_backend)
+  [PASS] Too many or too few values is an error, not a silent mistake.
+         (test_s2_db.BindTest.test_value_count_mismatch)
+  [PASS] Bad SQL raises our own DatabaseError with a short message.
+         (test_s2_db.LiveTest.test_bad_sql_raises_clean_error)
+  [PASS] A wrong address gives a clean error and the password is not in the message.
+         (test_s2_db.LiveTest.test_cannot_connect_message_has_no_password)
+  [PASS] The database answers a simple question.
+         (test_s2_db.LiveTest.test_connects_and_answers)
+  [PASS] A query with no matching rows returns an empty list.
+         (test_s2_db.LiveTest.test_empty_result)
+  [PASS] Hostile text passed as a value is stored as plain text and the table survives.
+         (test_s2_db.LiveTest.test_injection_text_is_just_text)
+  [PASS] Text with quotes, a list, a timestamp and a date are stored and read back unchanged.
+         (test_s2_db.LiveTest.test_insert_and_read_back_values)
+  [PASS] query() refuses anything that is not a SELECT.
+         (test_s2_db.LiveTest.test_query_refuses_changes)
+  [PASS] If the last statement of a script fails, the earlier ones are undone too.
+         (test_s2_db.LiveTest.test_script_is_all_or_nothing)
+  [PASS] The address travels from the environment through config into db and the database answers.
+         (test_s2_chain.ChainStage2.test_settings_to_database_answer)
+  [PASS] 'python -m app.check_connection' with no DATABASE_URL stops with a clear message.
+         (test_s3_load_data.CommandLineTest.test_check_connection_without_url_explains_itself)
+  [PASS] 'python -m app.load_data' with no DATABASE_URL (and no .env) stops with a clear message, not a crash.
+         (test_s3_load_data.CommandLineTest.test_load_without_url_explains_itself)
+  [PASS] Every flight points to real airports, and every airport and company points to a real city.
+         (test_s3_load_data.LoadTest.test_every_flight_links_resolve)
+  [PASS] A first load creates the four tables with 3 cities, 3 airports, 10 companies, 10 flights.
+         (test_s3_load_data.LoadTest.test_first_load_gives_expected_counts)
+  [PASS] There are 6 private and 4 commercial flights, ordered private x3, commercial x2, private x3, commercial x2.
+         (test_s3_load_data.LoadTest.test_flight_mix)
+  [PASS] No company has an empty phone, email or website (each is a real value or 'Not publicly listed').
+         (test_s3_load_data.LoadTest.test_no_blank_contact_fields)
+  [PASS] A new row added without an id gets the next free id (no clash with the loaded rows).
+         (test_s3_load_data.LoadTest.test_numbering_continues_after_data)
+  [PASS] --reset never touches tables that are not ours.
+         (test_s3_load_data.LoadTest.test_reset_leaves_other_tables_alone)
+  [PASS] --reset deletes our tables and loads the original data again.
+         (test_s3_load_data.LoadTest.test_reset_restores_original_data)
+  [PASS] The database itself rejects bad flights: same airport both ends, arrival before departure, private flight without a company, negative seats.
+         (test_s3_load_data.LoadTest.test_rules_in_schema_reject_bad_flights)
+  [PASS] Loading again without --reset is refused, and the data is untouched.
+         (test_s3_load_data.LoadTest.test_second_load_is_refused_and_changes_nothing)
+  [PASS] The loader can list which of our tables exist (none before loading, four after).
+         (test_s3_load_data.LoadTest.test_tables_present_listing)
+  [PASS] All 48 questions have a plain-SQL reference answer.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_every_question_has_a_reference_answer)
+  [PASS] For all 48 questions, the answer written in the questions file equals what plain SQL finds in the data.
+         (test_s3_questions_vs_db.QuestionsMatchData.test_expected_answers_match_the_database)
+  [PASS] All four example queries in database/03 run without error on the loaded data.
+         (test_s3_chain.ChainStage3.test_all_four_example_queries_run)
+  [PASS] From the environment to a loaded database to the answer for 'Mumbai to Delhi by the morning of 22 Oct'.
+         (test_s3_chain.ChainStage3.test_whole_chain)
+  [PASS] A pipeline that returns something that is not a dict is treated as a failure.
+         (test_s4_screen.CleanReplyTest.test_non_dict_is_rejected)
+  [PASS] Unknown status, kind and tone are replaced by safe ones; extra fields are dropped; long text is cut.
+         (test_s4_screen.CleanReplyTest.test_shapes_are_forced)
+  [PASS] With the real pipeline (no stand-ins), the server answers Mumbai to Delhi with the two real flights.
+         (test_s4_screen.RealPipelineTest.test_default_server_answers_from_the_database)
+  [PASS] A good question returns the expected shape: status, answer, cards.
+         (test_s4_screen.ServerTest.test_a_question_gets_an_answer)
+  [PASS] If answering crashes, the user gets a calm message and none of the internal text.
+         (test_s4_screen.ServerTest.test_an_internal_failure_does_not_leak_details)
+  [PASS] Not JSON, empty, not text, too long, and too big are each refused with the right code.
+         (test_s4_screen.ServerTest.test_bad_requests_get_clear_errors)
+  [PASS] /api/health says the server is up and which mode it is in.
+         (test_s4_screen.ServerTest.test_health)
+  [PASS] The home page, script and both style sheets are served with the right types.
+         (test_s4_screen.ServerTest.test_home_page_and_files)
+  [PASS] The server is bound to 127.0.0.1, so other devices cannot reach it.
+         (test_s4_screen.ServerTest.test_listens_on_this_computer_only)
+  [PASS] Project files, the .env file, and path tricks all give 'not found'.
+         (test_s4_screen.ServerTest.test_no_other_file_can_be_read)
+  [PASS] Pages carry headers that stop inline scripts, framing and content-type guessing.
+         (test_s4_screen.ServerTest.test_security_headers)
+  [PASS] Unknown paths and a GET on the chat address give 404.
+         (test_s4_screen.ServerTest.test_unknown_paths)
+  [PASS] A javascript: link in a source never leaves the server; the https link stays.
+         (test_s4_screen.ServerTest.test_unsafe_link_is_dropped_by_the_server)
+  [PASS] Form posts are refused (415), PUT/DELETE are refused (405), and a missing length is refused (411).
+         (test_s4_screen.ServerTest.test_wrong_content_type_and_methods)
+  [PASS] After a long answer arrives, the start of the answer is in view, and long values like emails use the full card width.
+         (test_s4_ui.UiTest.test_answer_scrolls_to_its_first_line_and_long_values_get_full_width)
+  [PASS] Clicking the icon opens a window on the right with a greeting, 4 suggestions, and the cursor in the typing box.
+         (test_s4_ui.UiTest.test_click_opens_window_with_greeting_and_suggestions)
+  [PASS] Closing with the arrow and opening again keeps the conversation on screen.
+         (test_s4_ui.UiTest.test_close_button_and_reopen_keep_the_conversation)
+  [PASS] With a dark system setting the window turns dark and the text stays readable.
+         (test_s4_ui.UiTest.test_dark_mode)
+  [PASS] Enter sends the question. Shift+Enter starts a new line instead of sending.
+         (test_s4_ui.UiTest.test_enter_sends_and_shift_enter_adds_a_line)
+  [PASS] Escape closes the window and puts the keyboard focus back on the corner icon.
+         (test_s4_ui.UiTest.test_escape_closes_and_focus_returns_to_icon)
+  [PASS] After a reload, the earlier questions and answers (including cards) are still there.
+         (test_s4_ui.UiTest.test_history_survives_a_reload)
+  [PASS] The page's own styles (grey paragraphs, big text) do not change the window: white header text, white plane icon, blue suggestions, full-width notes.
+         (test_s4_ui.UiTest.test_host_page_styles_do_not_leak_into_the_window)
+  [PASS] A question or answer containing HTML or script is displayed as plain text. Nothing runs.
+         (test_s4_ui.UiTest.test_html_in_text_is_shown_as_text_and_never_runs)
+  [PASS] A round icon sits in the corner and the chat window is closed until it is clicked.
+         (test_s4_ui.UiTest.test_icon_shows_and_window_starts_closed)
+  [PASS] 'Start a new chat' clears the conversation, even after a reload, and brings the suggestions back.
+         (test_s4_ui.UiTest.test_new_chat_clears_everything)
+  [PASS] A full session (open, ask twice, new chat, close) leaves no errors in the browser console.
+         (test_s4_ui.UiTest.test_no_errors_in_the_browser_console)
+  [PASS] When nothing matches, the window says so and shows no cards.
+         (test_s4_ui.UiTest.test_no_match_answer_is_shown_plainly)
+  [PASS] The page makes no requests to any other website (no fonts, trackers or CDNs).
+         (test_s4_ui.UiTest.test_page_only_talks_to_its_own_server)
+  [PASS] On a phone-sized screen the window fits inside the screen and the page does not scroll sideways.
+         (test_s4_ui.UiTest.test_phone_size_has_no_sideways_scroll)
+  [PASS] The typing box stops at 500 characters and shows a counter near the limit.
+         (test_s4_ui.UiTest.test_question_length_limit)
+  [PASS] If the server refuses the question itself (for example too long), the reason is shown and there is no pointless retry button.
+         (test_s4_ui.UiTest.test_refused_question_has_no_retry)
+  [PASS] The send button is off for an empty or spaces-only box and on when there is text. Clicking it sends.
+         (test_s4_ui.UiTest.test_send_button_only_works_with_text)
+  [PASS] If the server cannot be reached, a clear message and 'Try again' appear. Trying again works once it is back, without repeating the question.
+         (test_s4_ui.UiTest.test_server_down_shows_message_and_retry_works)
+  [PASS] A crash inside the answer step shows the calm message from the server (and a retry button), not internal text.
+         (test_s4_ui.UiTest.test_server_error_is_shown_without_internal_details)
+  [PASS] Clicking a suggestion sends it and shows the answer, two flight cards with facts, a note and a source link.
+         (test_s4_ui.UiTest.test_suggestion_click_gets_cards)
+  [PASS] While the answer is on its way, three dots show; they go away when the answer arrives.
+         (test_s4_ui.UiTest.test_typing_dots_show_while_waiting)
+  [PASS] Source links open in a new tab with noopener. A javascript: link is never shown, even if the server sent one.
+         (test_s4_ui.UiTest.test_unsafe_links_are_not_clickable_and_good_links_open_safely)
+  [PASS] If the browser blocks saved history, the chat still works for the current visit.
+         (test_s4_ui.UiTest.test_works_when_browser_storage_is_blocked)
+  [PASS] In a real browser: type a company name, and the window shows the card built from the database row.
+         (test_s4_chain.ChainStage4.test_database_row_appears_in_the_chat_window)
+  [PASS] A company typed into the server comes back with the phone and email stored in the database.
+         (test_s4_chain.ChainStage4.test_database_row_reaches_the_server_answer)
+  [PASS] In a real browser with the real pipeline: the medical question shows the three air-ambulance companies from the data.
+         (test_s4_chain.ChainStage4.test_real_pipeline_answers_in_the_window)
+  [PASS] When Gemini read the question, Gemini also writes the final sentence; cards still come from the data.
+         (test_s5_answers.ExplainTest.test_gemini_wording_is_used_when_available)
+  [PASS] Prices use Indian grouping (6,50,000).
+         (test_s5_answers.ExplainTest.test_indian_number_format)
+  [PASS] Bad key, rate limit and server errors give plain messages without the key.
+         (test_s5_answers.GeminiClientTest.test_errors_are_clear_and_never_show_the_key)
+  [PASS] The request carries the key in a header (not the URL), our functions, and forces one call; the reply is read correctly.
+         (test_s5_answers.GeminiClientTest.test_function_call_request_and_reply)
+  [PASS] If the first model name is not available (404), the next default model is tried.
+         (test_s5_answers.GeminiClientTest.test_missing_model_tries_the_next)
+  [PASS] Text replies are joined from the parts.
+         (test_s5_answers.GeminiClientTest.test_write_text)
+  [PASS] All 48 test questions get the expected answer from the real pipeline (rules mode, real database file).
+         (test_s5_answers.LiveCheckTest.test_all_48_questions_pass_with_rules)
+  [PASS] The local database has the same counts and contacts as the Neon data file.
+         (test_s5_answers.LocalDbTest.test_builds_same_data)
+  [PASS] Text like '; DROP TABLE' in a search value finds nothing and the tables are untouched.
+         (test_s5_answers.SearchSafetyTest.test_hostile_text_is_only_a_value)
+  [PASS] If Gemini is unreachable or rate-limited, the answer still comes, via rules, and says why.
+         (test_s5_answers.UnderstandTest.test_gemini_down_falls_back_to_rules_with_reason)
+  [PASS] Gemini's choice is used, but unknown cities, bad dates, junk keys and bad enums are dropped.
+         (test_s5_answers.UnderstandTest.test_gemini_plan_is_used_and_checked)
+  [PASS] If Gemini names a search we do not have, the rules are used instead.
+         (test_s5_answers.UnderstandTest.test_unknown_function_falls_back_to_rules)
+  [PASS] Chennai is not in v2, so v2 says it has nothing; v3 has Chennai and answers.
+         (test_s6_v3.V3AnswersTest.test_city_outside_the_data_is_refused_honestly)
+  [PASS] All 101 held-out v3 questions (different wording) get the expected answer (rules mode).
+         (test_s6_v3.V3AnswersTest.test_heldout_v3_questions)
+  [PASS] All 108 main v3 questions get the answer the independent answer key expects (rules mode).
+         (test_s6_v3.V3AnswersTest.test_main_v3_questions)
+  [PASS] v3 has 20 cities, 20 airports, 20 companies, 100 flights; its first 10 companies and flights equal v2 exactly.
+         (test_s6_v3.V3DataTest.test_counts_and_unchanged_v2_part)
+  [PASS] All 20 cities have at least one flight leaving and one arriving.
+         (test_s6_v3.V3DataTest.test_every_city_has_flights_both_ways)
+  [PASS] Each of the 10 new companies has a source link, a verification level and no empty contact field.
+         (test_s6_v3.V3DataTest.test_new_companies_have_sources_and_no_blanks)
+  [PASS] The v3 SQL file loads into real PostgreSQL with the same schema as Neon and gives 20/20/20/100 rows.
+         (test_s6_v3.V3OnPostgresTest.test_v3_loads_into_postgres)
+
+==============================================================================
+SUMMARY (each stage includes all earlier tests)
+  stage 0: passed   7  failed 0  skipped 0
+  stage 1: passed  23  failed 0  skipped 0
+  stage 2: passed  36  failed 0  skipped 0
+  stage 3: passed  52  failed 0  skipped 0
+  stage 4: passed  93  failed 0  skipped 0
+  stage 5: passed 105  failed 0  skipped 0
+  stage 6: passed 112  failed 0  skipped 0
+
+TEMPORARY DATABASE CLEANUP: deleted, nothing left behind
+
+NOT TESTED IN THIS REPORT (cannot be done in this workspace)
+  - Connecting to Neon (the workspace cannot reach neon.tech). Test it on your laptop: python -m app.check_connection
+  - The psycopg2 driver path in db.py. These tests use the psql command instead; both run the same SQL,
+    but psycopg2 itself runs for the first time on your laptop.
+  - pgvector / meaning-matching (accepted as out of scope for now).
+  - The real Google Gemini service (this workspace cannot reach it). Gemini was tested against a fake server
+    that follows Google's documented request and response shapes. Test the real one on your laptop:
+    python -m app.check_gemini --save
+  - The real search and the real answers (not built yet). The chat window is tested with stand-in
+    answers that exist only inside the tests; today the real pipeline says it is not connected.
+  - Browsers other than Chromium (Edge, Firefox, Safari, phones). The window uses only plain, standard web features.
+  - The screen has not yet been run on your laptop with Windows. Start it there with: python -m app.screen
+
+OVERALL: ALL TESTS PASSED
